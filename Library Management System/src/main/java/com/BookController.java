@@ -16,10 +16,9 @@ public class BookController extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		java.io.PrintWriter out=response.getWriter();
 		
 	}
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	
-	}
+
 
 }

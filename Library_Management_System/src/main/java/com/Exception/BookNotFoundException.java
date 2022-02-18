@@ -1,4 +1,4 @@
-package com.Exception;
+package com.exception;
 
 public class BookNotFoundException extends Exception{
     public BookNotFoundException(String msg) {

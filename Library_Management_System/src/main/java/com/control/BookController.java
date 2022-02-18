@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.Entity.Book;
+import com.entity.Book;
 import com.service.BookService;
 
 @WebServlet("/BookController")

@@ -1,4 +1,4 @@
-package com.DAO;
+package com.dao;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -6,7 +6,7 @@ import java.io.InputStreamReader;
 import java.text.SimpleDateFormat;
 import java.util.List;
 
-import com.Entity.Book;
+import com.entity.Book;
 
 public class Main {
 	 static BufferedReader br=new BufferedReader(new InputStreamReader(System.in));

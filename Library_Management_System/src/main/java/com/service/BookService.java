@@ -8,8 +8,8 @@ import java.util.List;
 
 import javax.ws.rs.*;
 
-import com.DAO.*;
-import com.Entity.Book;
+import com.dao.*;
+import com.entity.Book;
 
 @Path("/bookService")
 public class BookService {

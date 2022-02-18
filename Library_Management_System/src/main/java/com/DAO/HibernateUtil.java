@@ -1,4 +1,4 @@
-package com.DAO;
+package com.dao;
 
 import java.util.ResourceBundle;
 

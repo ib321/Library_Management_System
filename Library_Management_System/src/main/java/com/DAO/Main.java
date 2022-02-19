@@ -7,19 +7,25 @@ import java.text.SimpleDateFormat;
 import java.util.List;
 
 import com.entity.Book;
+import com.service.BookService;
 
 public class Main {
 	 static BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
 	public static void main(String[] args) throws IOException {
 		BookDAO bkd=new BookDAO();
-		SimpleDateFormat sdf=new SimpleDateFormat("dd/MM/yyyy");
+		BookService bks=new BookService();
+		String print;
 		System.out.println("Enter Book:");
 		String name=br.readLine();
-		List l=bkd.findByName(name);
-		System.out.printf("%-15s %-15s %-15s %-15s %s\n","Id","Name","Author","Category","Date");
+		//bks.DisplayBookByName(name);
+		List l=bkd.findByCategory(name);
+		if(l==null) {System.out.println("Not Available"); System.exit(0);}
+		System.out.printf("%-15s %-15s %-15s %-15s %s\n","BookNo","BookName","Author","Category","Available");
 		for (Object object : l) {
 			Book b=(Book) object;
-			System.out.printf("%-15s %-15s %-15s %-15s %s\n",b.getId(),b.getName(),b.getAuthor(),b.getCategory(),sdf.format(b.getReturnDate()));
+			boolean c=bks.checkAvailability(b.getReturnDate());
+			if(c==true) {print="Available";}else {print="Unavailable";}
+			System.out.printf("%-15s %-15s %-15s %-15s %s\n",b.getId(),b.getName(),b.getAuthor(),b.getCategory(),print);
 		}
 
 	}

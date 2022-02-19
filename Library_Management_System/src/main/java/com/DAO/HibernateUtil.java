@@ -1,10 +1,8 @@
 package com.dao;
 
 import java.util.ResourceBundle;
-
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.service.ServiceRegistry;
@@ -18,7 +16,6 @@ public class HibernateUtil {
 			Logger log = Logger.getLogger("org.hibernate");
 			log.setLevel(Level.OFF);
 			System.setProperty("org.apache.commons.logging.Log", "org.apache.commons.logging.impl.NoOpLog");
-			
 			ResourceBundle rb = ResourceBundle.getBundle("oracle");
 			Configuration cfg = new Configuration().configure("hibernate.cfg.xml");
 			cfg.setProperty("hibernate.connection.url", rb.getString("db.url"));

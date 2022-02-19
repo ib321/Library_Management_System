@@ -7,9 +7,9 @@
 			<attribute name="owner.project.facets" value="jst.web"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Hibernate_Jdbc_eJar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Ebox_hibernate"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/ojdbc_jars"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Rest_Api_Jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

@@ -1,57 +1,56 @@
-html,body{
-	margin:0;
-	padding:0;
+html, body {
+	margin: 0;
+	padding: 0;
 }
-body{
-      background-color:grey;
-      background-image: url("https://images.unsplash.com/photo-1481627834876-b7833e8f5570?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bGlicmFyeXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60")
-    }
- .anchor1
-		{
-			background-color : white;
-			border : 2px solid #42f4ce;
-			border-radius : 5px;
-			color : black;
-			padding : 10px;
-			text-decoration : none;
-		}
-		a.anchor1:hover, 
-		a.anchor1:active 
-		{
-			background-color :#42f4ce;
-			color :white;
 
-		}
-		.anchor2
-		{
-			background-color:white;
-			border: 2px solid #b0f0f2;
-			border: radius 5px;
-			color:black;
-			padding:10px;
-			text-decoration:none;
-		}
-		a.anchor2:hover, 
-		a.anchor2:active 
-		{
-			background-color :#b0f0f2;
-			color :white;
 
-		} 
+ 
 
-		.anchor3
-		{
-			background-color : white;
-			border : 2px solid #ead2f2;
-			border-radius : 5px;
-			color : black;
-			padding : 10px;
-			text-decoration : none;
-		}
-		a.anchor3:hover, 
-		a.anchor3:active 
-		{
-			background-color :#ead2f2;
-			color :white;
+ 
+body {
+	background-color: grey;
+	background-image:
+		url("https://images.unsplash.com/photo-1481627834876-b7833e8f5570?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bGlicmFyeXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60")
+}
 
-		}
+.anchor1 {
+	background-color: white;
+	border: 2px solid #42f4ce;
+	border-radius: 5px;
+	color: black;
+	padding: 10px;
+	text-decoration: none;
+}
+
+a.anchor1:hover{
+	background-color: #42f4ce;
+	color: white;
+}
+
+.anchor2 {
+	background-color: white;
+	border: 2px solid #b0f0f2;
+	border: radius 5px;
+	color: black;
+	padding: 10px;
+	text-decoration: none;
+}
+
+a.anchor2:hover{
+	background-color: #b0f0f2;
+	color: white;
+}
+
+.anchor3 {
+	background-color: white;
+	border: 2px solid #ead2f2;
+	border-radius: 5px;
+	color: black;
+	padding: 10px;
+	text-decoration: none;
+}
+
+a.anchor3:hover{
+	background-color: #ead2f2;
+	color: white;
+}

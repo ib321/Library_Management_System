@@ -6,6 +6,7 @@ import java.io.InputStreamReader;
 import java.text.SimpleDateFormat;
 import java.util.List;
 
+import com.bo.BookBO;
 import com.entity.Book;
 import com.service.BookService;
 
@@ -13,6 +14,7 @@ public class Main {
 	 static BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
 	public static void main(String[] args) throws IOException {
 		BookDAO bkd=new BookDAO();
+		BookBO bkb = new BookBO();
 		BookService bks=new BookService();
 		String print;
 		System.out.println("Enter Book:");
@@ -23,7 +25,7 @@ public class Main {
 		System.out.printf("%-15s %-15s %-15s %-15s %s\n","BookNo","BookName","Author","Category","Available");
 		for (Object object : l) {
 			Book b=(Book) object;
-			boolean c=bks.checkAvailability(b.getReturnDate());
+			boolean c=bkb.checkAvailability(b.getReturnDate());
 			if(c==true) {print="Available";}else {print="Unavailable";}
 			System.out.printf("%-15s %-15s %-15s %-15s %s\n",b.getId(),b.getName(),b.getAuthor(),b.getCategory(),print);
 		}

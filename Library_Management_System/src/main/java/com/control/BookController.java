@@ -29,6 +29,7 @@ public class BookController extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		
         BookService bks=new BookService();
         BookDAO bkd = new BookDAO();
         String print,search = null;
@@ -45,18 +46,17 @@ public class BookController extends HttpServlet {
 		            }
 		String Author = request.getParameter("author_name");
 		if(Author!=null)
-		{ search=Author;
-		 l = bkd.findByAuthor(search);
+		{ 
+		 l = bkd.findByAuthor(Author);
 		out.println("<h1>Hello!!<br> Got it What You Entered <br> Author_name : <hr>"+Author+"<h1>");
 		}
 		String category = request.getParameter("category");
 		if(category!=null)
-		{    l = bkd.findByCategory(search);
+		{    l = bkd.findByCategory(category);
 			search=category;
 		out.println("<h1>Hello!!<br> Got it What You Entered <br> category : <hr>"+category+"<h1>");
 		}
 		
-			
 			
 			
 			try {

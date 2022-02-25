@@ -29,7 +29,7 @@ public class BookController extends HttpServlet {
 
 		BookService bks = new BookService();
 		BookBO bkb = new BookBO();
-		String print, search = null;
+		String print;
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
 		out.println(
@@ -41,8 +41,7 @@ public class BookController extends HttpServlet {
 		List ch = new ArrayList();
 		String name = request.getParameter("book_name");
 		if (name != null) {
-			search = name;
-			l = bks.getBookByName(search);
+			l = bks.getBookByName(name);
 			out.println("<h1>Hello!! Got it What You Entered  <br> Book Name :" + name + "</h1>");
 		}
 		String Author = request.getParameter("author_name");
@@ -53,7 +52,6 @@ public class BookController extends HttpServlet {
 		String category = request.getParameter("category");
 		if (category != null) {
 			l = bks.getBookByCategory(category);
-			search = category;
 			out.println("<h1>Hello!! Got it What You Entered <br>Category:<hr>" + category + "</h1>");
 		}
 

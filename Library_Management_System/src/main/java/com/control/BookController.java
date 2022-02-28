@@ -17,7 +17,8 @@ import com.exception.BookNotFoundException;
 import com.service.BookService;
 
 @WebServlet("/BookController")
-public class BookController extends HttpServlet {
+public class BookController extends HttpServlet { 
+	
 	private static final long serialVersionUID = 1L;
 
 	public BookController() {
@@ -32,13 +33,14 @@ public class BookController extends HttpServlet {
 		String print;
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
+		
 		out.println(
-				"<html><head><style>h1{color: #0ae312;}"
-				+ "table,th,td{width: 40%;background-color: #e3520a; border: 1px solid black;}"
-				+ "</style><link rel=\"stylesheet\" type=\"text/css\" href=\"input1.css\"></head>");
+				"<html> <head> <style>h1{color: #0ae312;}"
+				+ "table,th,td{ width: 40%; background-color: #e3520a; border: 1px solid black; }"
+						
+				+ "</style> <link rel=\"stylesheet\" type=\"text/css\" href=\"input1.css\"></head>");
 		out.println("<body><center><h1 style=\"color:white;\">This is Not Final Yet!!:)</h1> ");
 		List l = new ArrayList();
-		List ch = new ArrayList();
 		String name = request.getParameter("book_name");
 		if (name != null) {
 			l = bks.getBookByName(name);
@@ -59,19 +61,24 @@ public class BookController extends HttpServlet {
 			if (l.isEmpty()) {
 				out.println("<h1 style=\\\"color:white;\\>Not Available<h1><hr>");
 				throw new BookNotFoundException("Book Not Found in Database");
-			} else {
+			} 
+			else 
+			{
 				out.println("<h2 style=\"color:white;\">Book Details</h2>");
 				out.printf(
 						"<table ><tr><th>BookNo</th><th>BookName</th> <th>Author</th> <th>Category</th><th>Available</th></tr></table>");
 
-				for (Object object : l) {
+				for (Object object : l) { 
+					
 					Book b = (Book) object;
+					
 					boolean c = bkb.checkAvailability(b.getReturnDate());
 					if (c == true)
 						print = "Available";
 					else
 						print = "Unavailable";
 
+					
 					out.println("<center><table><tr><td>" + b.getId() + "</td><td>" + b.getName() + "</td><td>"
 							+ b.getAuthor() + "</td><td>" + b.getCategory() + "</td><td>" + print
 							+ "</td></tr></table></center>");

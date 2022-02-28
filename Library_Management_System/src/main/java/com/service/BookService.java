@@ -12,16 +12,16 @@ public class BookService {
 
 	@GET
 	@Path("/displaybookbyname")
-	@Produces("text/plain")
+	@Produces("JSON/Application")
 	public List getBookByName(String name) {
 		BookBO bkb = new BookBO();
 		List listbook = bkb.findByName(name);
 		return listbook; 
-		}
+	}
 	
 	@GET
 	@Path("/displaybookbyauthor")
-	@Produces("text/plain")
+	@Produces("JSON/Application")
 	public List getBookByAuthor(String author) {
 		BookBO bkb = new BookBO();
 		List listbook = bkb.findByAuthor(author);
@@ -30,7 +30,7 @@ public class BookService {
 	
 	@GET
 	@Path("/displaybookcategory")
-	@Produces("text/plain")
+	@Produces("JSON/Application")
 	public List getBookByCategory(String category) {
 		BookBO bkb = new BookBO();
 		List listbook = bkb.findByCategory(category);

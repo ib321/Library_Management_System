@@ -32,6 +32,5 @@ public class BookBO {
 			return false;
 		else
 			return false;
-
 	}
 }

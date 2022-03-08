@@ -94,7 +94,7 @@ function category(){
     <br/><br/>  
     
     <h4 style="color:white;">
-			Thought Of Logging Out from Here <br><a style="color:green;" href="/LibraryManagement/">Click Me To LogOut</a>
+			 Below is the Link to Logout <br><a style="color:green;" href="/LibraryManagement/">Click Me To Logout</a>
 		</h4>
     </div>
     

@@ -31,6 +31,9 @@
 				</tr>
 			</c:forEach>
 		</table>
+		 <h4 style="color:white;">
+			Thought Of Logging Out from Here <br><a style="color:green;" href="/LibraryManagement/">Click Me To LogOut</a>
+		</h4>
 	</div>
 </body>
 </html>

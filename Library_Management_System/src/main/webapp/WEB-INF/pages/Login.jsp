@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,17 +7,17 @@
 <title>Library-Management-System</title>
 
 <style type="text/css">
-html, 
-.hero-image{
+html, .hero-image {
 	background-color: grey;
 	background-image:
 		url("https://w0.peakpx.com/wallpaper/972/48/HD-wallpaper-stack-of-books-blue-background-education-concepts-books-library-school-learning-concepts.jpg");
-	height:500px;
-	background-position:center;
-	background-repeat:no-repeat;
-	background-size:cover;
-		}
-		.anchor1 {
+	height: 500px;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.anchor1 {
 	background-color: white;
 	border: 2px solid #42f4ce;
 	border-radius: 5px;
@@ -26,7 +26,7 @@ html,
 	text-decoration: none;
 }
 
-.anchor1:hover{
+.anchor1:hover {
 	background-color: #42f4ce;
 	color: red;
 }
@@ -40,27 +40,30 @@ html,
 	text-decoration: none;
 }
 
-.anchor2:hover{
+.anchor2:hover {
 	background-color: #42f4ce;
 	color: red;
 }
-		
 </style>
 <body>
-<div align="center">
-   
-    <h1 style="color:white;">LIBRARY MANAGEMENT SYSTEM</h1><br/><br/> 
-    <h2 style="color:white;">LOGIN </h2><br/><br/>
-    <form action="/LibraryManagement/home" method="get">
-    <b><p style="font-size:30px;">Username:</b>  
-    <input class="anchor1" type="text"  name="name" id="name" required> <br> <br>
+	<div align="center">
 
-    <b><p style="font-size:30px;">Password:</b> 
-    <input class="anchor2" type="password" name="password" id="password" required> <br> <br>
-        
-        <input type="Submit" id="validate" value="Login" >
-        </form>
-    </div>
+		<h1 style="color: white;">LIBRARY MANAGEMENT SYSTEM</h1>
+		<br /> <br />
+		<h2 style="color: white;">LOGIN</h2>
+		<br /> <br />
+		<form action="/LibraryManagement/home" method="get">
+			<b style="font-size: 30px">Username:</b> 
+			<input class="anchor1"
+			type="text" name="name" placeholder="ib" id="name" required>
+			<br> <br> 
+			<b style="font-size: 30px;">Password:</b> 
+			<input
+				class="anchor2" type="password" placeholder="ib" name="password"
+				id="password" required> <br> <br> 
+		<input type="Submit" id="validate" value="Login">
+		</form>
+	</div>
 
 </body>
 </head>

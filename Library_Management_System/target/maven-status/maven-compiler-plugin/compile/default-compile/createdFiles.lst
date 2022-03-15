@@ -1,0 +1,7 @@
+com\lib\controller\BookController.class
+com\lib\dao\BookDAO.class
+com\lib\repository\BookRepository.class
+com\lib\dao\BookDAOImpl.class
+com\lib\LibraryApplication.class
+com\lib\model\Book.class
+com\lib\bo\BookBO.class

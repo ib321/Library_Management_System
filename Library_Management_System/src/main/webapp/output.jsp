@@ -36,7 +36,7 @@ body {
 
 	<div align="center">
 		<h1>Book List</h1>
-		<%@ page import="com.lib.bo.BookBO"%>
+		<%@ page import="com.lib.service.BookService"%>
 	
 
 		<table border="1">
@@ -51,12 +51,11 @@ body {
 				<c:forEach var="book" items="${listname}">
 
 					<tr>
-
 						<td><center>${book.getId()}</center></td>
-						<td>${ book.getName()}</td>
+						<td>${book.getName()}</td>
 						<td>${book.getAuthor()}</td>
 						<td>${book.getCategory()}</td>
-						<td>${BookBO.checkAvailability(book.getReturnDate())}</td>
+						<td>${BookService.checkAvailability(book.getReturnDate())}</td>
 					</tr>
 				</c:forEach>
 		</table>

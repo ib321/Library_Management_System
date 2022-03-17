@@ -1,83 +1,57 @@
 package com.lib.controller;
 
 import java.io.IOException;
+
+
 import java.util.ArrayList;
-import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.lib.dao.BookDAO;
-import com.lib.dao.BookDAOImpl;
+import com.lib.exception.BookNotFoundException;
 import com.lib.model.Book;
-import com.lib.model.User;
-import com.lib.repository.BookRepository;
-import com.lib.repository.UserRepository;
+
+import com.lib.service.BookService;
 
 @RestController
 public class BookController {
 
-	@Autowired
-	private BookRepository repository;
 
 	@Autowired
-	private UserRepository userrepository;
+	private BookService bks;
+
 
 	public BookController() {
 		System.out.println("---Inside cnstrctr BookController---");
 	}
 
 	@GetMapping(path = "/list", produces = "application/json")
-	public ArrayList<Book> getData() {
-		ArrayList<Book> ListAll = (ArrayList<Book>) repository.findAll();
-		return ListAll;
+	public ArrayList<Book> getAll() {
+		return bks.GetAllBook();
+
 	}
 
 	@GetMapping(path = "/name/{name}", produces = "application/json")
 	public ArrayList<Book> SearchName(@PathVariable String name) {
-		ArrayList<Book> ListAll = (ArrayList<Book>) repository.findAll();
-		ArrayList<Book> nameList = new ArrayList<Book>();
-		for (Book book : ListAll) {
-			if (book.getName().equalsIgnoreCase(name))
-				nameList.add(book);
-		}
-		return nameList;
+		return bks.GetBookByName(name);
 	}
 
 	@GetMapping(path = "/author/{author}", produces = "application/json")
 	public ArrayList<Book> SearchAuthor(@PathVariable String author) {
-		ArrayList<Book> ListAll = (ArrayList<Book>) repository.findAll();
-		ArrayList<Book> authList = new ArrayList<Book>();
-		for (Book book : ListAll) {
-			if (book.getAuthor().equalsIgnoreCase(author))
-				authList.add(book);
-		}
-		return authList;
-
+		return bks.GetBookByAuthor(author);
 	}
 
 	@GetMapping(path = "/category/{category}", produces = "application/json")
 	public ArrayList<Book> Searchcategory(@PathVariable String category) {
-		ArrayList<Book> ListAll = (ArrayList<Book>) repository.findAll();
-		ArrayList<Book> catList = new ArrayList<Book>();
-		for (Book book : ListAll) {
-			if (book.getCategory().equalsIgnoreCase(category))
-				catList.add(book);
-		}
-		return catList;
-
+		return bks.GetBookByCategory(category);
 	}
 
 	@RequestMapping(value = "/login")
@@ -87,11 +61,10 @@ public class BookController {
 	}
 
 	@RequestMapping(value = "/home", method = RequestMethod.GET)
-	public ModelAndView home(HttpServletRequest request, ModelAndView model) throws IOException {
-		String name = request.getParameter("name");
-		String password = request.getParameter("password");
-		System.out.println(name + " " + password);
+	public ModelAndView home(@RequestParam String name, @RequestParam String password, ModelAndView model)
+			throws IOException {
 
+		System.out.println(name + " " + password);
 		// User u=(User)userrepository.findById(name);
 		if (name.equals("ib") && password.equals("ib")) {
 			model.setViewName("home.jsp");
@@ -103,9 +76,8 @@ public class BookController {
 
 	@RequestMapping(value = "/create", method = RequestMethod.GET)
 	public ModelAndView createuser(HttpServletRequest request, ModelAndView model) throws IOException {
-
+		// we need to work on this function it's not completed
 		model.setViewName("Login.jsp");
-
 		return model;
 	}
 
@@ -116,44 +88,55 @@ public class BookController {
 	}
 
 	@RequestMapping(value = "/showbookbyname", method = RequestMethod.GET)
-	public ModelAndView showBookByName(HttpServletRequest request, ModelAndView model) {
-		String name = request.getParameter("book_name");
-		ArrayList<Book> ListAll = (ArrayList<Book>) repository.findAll();
-		ArrayList<Book> nameList = new ArrayList<Book>();
-		for (Book book : ListAll) {
-			if (book.getName().equalsIgnoreCase(name))
-				nameList.add(book);
+	public ModelAndView showBookByName(@RequestParam String book_name, HttpServletRequest request, ModelAndView model) {
+
+		try {
+			ArrayList<Book> nameList = bks.GetBookByName(book_name);
+			model.addObject("listname", nameList);
+
+			if (nameList.isEmpty()) {
+				throw new BookNotFoundException("Book Not Found");
+			}
+
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
 		}
-		model.addObject("listname", nameList);
 		model.setViewName("output.jsp");
 		return model;
 	}
 
 	@RequestMapping(value = "/showbookbyauthor", method = RequestMethod.GET)
-	public ModelAndView showBookByAuthor(HttpServletRequest request, ModelAndView model) {
-		String author = request.getParameter("author_name");
-		ArrayList<Book> ListAll = (ArrayList<Book>) repository.findAll();
-		ArrayList<Book> authList = new ArrayList<Book>();
-		for (Book book : ListAll) {
-			if (book.getAuthor().equalsIgnoreCase(author))
-				authList.add(book);
+	public ModelAndView showBookByAuthor(@RequestParam String author_name, HttpServletRequest request,
+			ModelAndView model) {
+		try {
+			ArrayList<Book> authList = bks.GetBookByAuthor(author_name);
+			model.addObject("listname", authList);
+			if (authList.isEmpty()) {
+
+				throw new BookNotFoundException("Book Not Found");
+			}
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
 		}
 
-		model.addObject("listname", authList);
 		model.setViewName("output.jsp");
 		return model;
 	}
 
 	@RequestMapping(value = "/showbookbycategory", method = RequestMethod.GET)
-	public ModelAndView showBookByCategory(HttpServletRequest request, ModelAndView model) {
-		String category = request.getParameter("category");
-		ArrayList<Book> ListAll = (ArrayList<Book>) repository.findAll();
-		ArrayList<Book> catList = new ArrayList<Book>();
-		for (Book book : ListAll) {
-			if (book.getCategory().equalsIgnoreCase(category))
-				catList.add(book);
+	public ModelAndView showBookByCategory(@RequestParam String category, HttpServletRequest request,
+			ModelAndView model) {
+
+		try {
+			ArrayList<Book> catList = bks.GetBookByCategory(category);
+			model.addObject("listname", catList);
+			if (catList.isEmpty()) {
+
+				throw new BookNotFoundException("Book Not Found");
+			}
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
 		}
-		model.addObject("listname", catList);
 		model.setViewName("output.jsp");
 		return model;
 	}

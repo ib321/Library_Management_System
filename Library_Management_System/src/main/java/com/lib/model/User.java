@@ -12,10 +12,22 @@ public class User {
 	String fname;
 	String lname;
 	String email;
-	
+	Long phone;
 	String password;
+	String Address;
 	
-	
+	public Long getPhone() {
+		return phone;
+	}
+	public void setPhone(Long phone) {
+		this.phone = phone;
+	}
+	public String getAddress() {
+		return Address;
+	}
+	public void setAddress(String address) {
+		Address = address;
+	}
 	public String getFname() {
 		return fname;
 	}

@@ -1,11 +1,11 @@
+com\lib\service\BookService.class
 com\lib\controller\BookController.class
+com\lib\service\UserService.class
 com\lib\LibraryApplication.class
 com\lib\exception\BookNotFoundException.class
 com\lib\repository\BookRepositoryImpl.class
 com\lib\model\User.class
-com\lib\dao\BookDAO.class
 com\lib\repository\UserRepository.class
 com\lib\repository\BookRepository.class
-com\lib\dao\BookDAOImpl.class
+com\lib\repository\UserRepositoryImpl.class
 com\lib\model\Book.class
-com\lib\bo\BookBO.class

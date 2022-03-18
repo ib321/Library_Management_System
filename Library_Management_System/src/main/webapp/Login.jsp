@@ -16,7 +16,33 @@ html, .hero-image {
 	background-repeat: no-repeat;
 	background-size: cover;
 }
-
+.card {
+  height: 350px;
+  width: 350px !important;
+  display: inline-block;
+}
+.card {
+ background: linear-gradient(150deg, #f731db, #4600f1 100%);
+  position: relative;
+  margin: 0.5rem 0 1rem 0;
+  -webkit-transition: -webkit-box-shadow 0.25s;
+  transition: -webkit-box-shadow 0.25s;
+  transition: box-shadow 0.25s;
+  transition: box-shadow 0.25s, -webkit-box-shadow 0.25s;
+  border-radius: 2px;
+  margin-left: 15px;
+}
+.button{
+  width: 150px;
+  display: block;
+  margin: 0 auto;
+  color: #4600f1;
+  border-radius: 50px;
+  padding: 1em;
+  background: white;
+  border: none;
+  font-weight: bold;
+}
 .anchor1 {
 	background-color: white;
 	border: 2px solid #42f4ce;
@@ -50,25 +76,28 @@ html, .hero-image {
 
 		<h1 style="color: white;">LIBRARY MANAGEMENT SYSTEM</h1>
 		<br /> <br />
-		<h2 style="color: white; ">LOGIN</h2>
+		<div class="card">
+		<h2>LOGIN</h2>
 		<br /> <br />
 		<form action="/home" method="get">
 			<b style="font-size: 30px">Username:</b> 
 			<input class="anchor1"
-			type="text" name="name" placeholder="ib" id="name" required>
+			type="text" name="name" placeholder="User Name" id="name" required>
 			<br> <br> 
 			<b style="font-size: 30px;">Password:</b> 
 			<input
-				class="anchor2" type="password" placeholder="ib" name="password"
+				class="anchor2" type="password" placeholder="Password" name="password"
 				id="password" required> <br> <br> 
 				
-		<input type="Submit" id="validate" value="Login">
-		<br><br>
+		<input class="button" type="Submit" id="validate" value="Login">
+		<br>
 		</form>
 		<form action="/registerUser" method="get">
-		<input type="Submit" id="register" value="Create New Account">
+		<input class="button" type="Submit" id="register" value="Create New Account">
 		</form>
 	</div>
+	</div>
+	<div  align="center" ><h2>${outString}</h2></div>
 
 </body>
 </head>

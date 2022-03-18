@@ -77,33 +77,26 @@ body {
 	}
 </script>
 <body>
+	<div style="color: white;" align="right">
+		<h4 align="right">
+			<br> <a style="color: green;"
+				href="/login"><button>Log out</button> </a>
+		</h4>
+	</div>
 	<div align="center">
 
 		<h1 style="color: red;">LIBRARY MANAGEMENT SYSTEM</h1>
-		<br />
-		<br /> <input class="anchor1" type="button"
-			value="Search By Book Name" onclick="bookname()" /> <br>
-		<br>
+		<br /> <br /> <input class="anchor1" type="button"
+			value="Search By Book Name" onclick="bookname()" /> <br> <br>
 		<div id="bk"></div>
-		<br />
-		<br /> <input class="anchor2" type="button" value="Search By Author"
-			onclick="author()" /> <br>
-		<br>
+		<br /> <br /> <input class="anchor2" type="button"
+			value="Search By Author" onclick="author()" /> <br> <br>
 		<div id="au"></div>
-		<br />
-		<br /> <input class="anchor3" type="button" value="Search By Category"
-			onclick="category()" /> <br>
-		<br>
+		<br /> <br /> <input class="anchor3" type="button"
+			value="Search By Category" onclick="category()" /> <br> <br>
 		<div id="cat"></div>
-		<br />
-		<br />
+		<br /> <br />
 
-
-		<h4 style="color: white;">
-			Click Below to Logout <br>
-			<a style="color: green;" href="/login"><button>Logout</button>
-			</a>
-		</h4>
 	</div>
 
 

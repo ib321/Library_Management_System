@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <project xmlns="http://maven.apache.org/POM/4.0.0"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
@@ -14,7 +16,7 @@
 
 
 	<groupId>com.lib</groupId>
-	<artifactId>corona-jpa</artifactId>
+	<artifactId>lib-ib-jpa</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>Library--Management--System</name>
 	<description>Web Application Spring Boot With Spring Data JPA</description>
@@ -59,7 +61,6 @@
 		<dependency>
 			<groupId>com.oracle.database.jdbc</groupId>
 			<artifactId>ojdbc8</artifactId>
-			<version>19.3.0.0</version>
 		</dependency>
 
 
@@ -93,5 +94,6 @@
 		</plugins>
 	</build>
 
+	<packaging>war</packaging>
 </project>
 

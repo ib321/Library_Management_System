@@ -31,7 +31,7 @@ function validate() {
     inputs[0] = document.getElementById('first').value;
     inputs[1] = document.getElementById('last').value;
     inputs[2] = document.getElementById('email').value;
-    inputs[3] = document.getElementById('uid').value;
+    inputs[3] = document.getElementById('userid').value;
     inputs[4] = document.getElementById('password').value;
     inputs[5] = document.getElementById('confirm').value;
 
@@ -85,7 +85,7 @@ function finalValidate() {
 
 <body>
 
-	<div align="center">
+	<div align="center" id="output">
 		<h1>Library Management System</h1>
 		<h2>User Registration</h2>
 		<form action="/create" method="get">
@@ -93,35 +93,49 @@ function finalValidate() {
 		
 			<tr>
 				<td>First Name:</td>
-				<td><input type="text" id="first" onkeyup="validate();" /><br><br></td>
+				<td><input type="text"  name="first" id="first" onkeyup="validate();" /><br><br></td>
 				<td>
 					<div id="errFirst"></div>
 				</td>
 			</tr>
 			<tr>
 				<td>Last Name:</td>
-				<td><input type="text" id="last" onkeyup="validate();" /><br><br></td>
+				<td><input type="text" id="last" name="last" onkeyup="validate();" /><br><br></td>
 				<td>
 					<div id="errLast"></div>
 				</td>
 			</tr>
 			<tr>
 				<td>Email:</td>
-				<td><input type="text" id="email" onkeyup="validate();" /><br><br></td>
+				<td><input type="text" id="email" name="email"  onkeyup="validate();" /><br><br></td>
 				<td>
 					<div id="errEmail"></div>
 				</td>
 			</tr>
 			<tr>
+				<td>Phone Number:</td>
+				<td><input type="number" id="phone" name="phone" onkeyup="validate();" /><br><br></td>
+				<td>
+					<div id="errPhone"></div>
+				</td>
+			</tr>
+			<tr>
+				<td>Address:</td>
+				<td><input type="text" id="address" name="address" onkeyup="validate();" /><br><br></td>
+				<td>
+					<div id="errAddress"></div>
+				</td>
+			</tr>
+			<tr>
 				<td>User Id:</td>
-				<td><input type="text" id="uid" onkeyup="validate();" /><br><br></td>
+				<td><input type="text" id="userid" name="userid" onkeyup="validate();" /><br><br></td>
 				<td>
 					<div id="errUid"></div>
 				</td>
 			</tr>
 			<tr>
 				<td>Password:</td>
-				<td><input type="password" id="password" onkeyup="validate();" /><br><br></td>
+				<td><input type="password" id="password" name="password" onkeyup="validate();" /><br><br></td>
 				<td>
 					<div id="errPassword"></div>
 				</td>
@@ -141,6 +155,7 @@ function finalValidate() {
 				</td>
 			</tr>
 		</table>
+		
 		</form>
 	</div>
 </body>

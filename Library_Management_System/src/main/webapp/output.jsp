@@ -3,7 +3,7 @@
    "http://www.w3.org/TR/html4/loose.dtd">
 
 <%@ page pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -29,15 +29,21 @@ body {
 </head>
 <body>
 
-	<h4 align="justify" style="color: white;">
-		Go Back <br> <input type=button value="Back"
-			onCLick="history.back()">
-	</h4>
+
+	<div style="color: white;" align="right">
+		<h4 align="justify" style="color: white;">
+			<br> <input type=button value="Home" onCLick="history.back()">
+		</h4>
+		<h4 align="right">
+			<br> <a style="color: green;" href="/login"><button>Logout</button>
+			</a>
+		</h4>
+	</div>
 
 	<div align="center">
 		<h1>Book List</h1>
 		<%@ page import="com.lib.service.BookService"%>
-	
+
 
 		<table border="1">
 			<tr>
@@ -59,10 +65,7 @@ body {
 					</tr>
 				</c:forEach>
 		</table>
-		<h4 style="color: white;">
-			Click Below to Logout <br> <a style="color: green;"
-				href="/login"><button>Logout</button> </a>
-		</h4>
+
 
 	</div>
 </body>

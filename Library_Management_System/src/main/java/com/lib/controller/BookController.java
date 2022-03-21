@@ -9,9 +9,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -25,6 +27,7 @@ import com.lib.service.BookService;
 import com.lib.service.UserService;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:4200")
 public class BookController {
 
 	@Autowired
@@ -35,6 +38,24 @@ public class BookController {
 
 	public BookController() {
 		System.out.println("---Inside cnstrctr BookController---");
+	}
+
+	@Autowired
+	UserRepositoryImpl usb;
+
+	@PostMapping(path = "/registerUser", consumes = "application/json")
+	public void addUser(@RequestBody User user) {
+		usb.saveUser(user);
+	}
+
+	@GetMapping(path = "/allUserList", produces = "application/json")
+	public ArrayList<User> getAllUser() {
+		return uss.getAllUser();
+	}
+
+	@GetMapping(path = "/validateUser", produces = "application/json")
+	public boolean ValidateUser(@RequestParam String name, @RequestParam String password) {
+		return uss.validate_User(name, password);
 	}
 
 	@GetMapping(path = "/list", produces = "application/json")
@@ -59,7 +80,8 @@ public class BookController {
 	}
 
 	@RequestMapping(value = "/login")
-	public ModelAndView login(ModelAndView model,HttpServletRequest req,HttpServletResponse res) throws ServletException {
+	public ModelAndView login(ModelAndView model, HttpServletRequest req, HttpServletResponse res)
+			throws ServletException {
 		req.logout();
 		model.setViewName("Login.jsp");
 		return model;
@@ -68,20 +90,18 @@ public class BookController {
 	@RequestMapping(value = "/home", method = RequestMethod.GET)
 	public ModelAndView home(@RequestParam String name, @RequestParam String password, ModelAndView model)
 			throws IOException {
-		
+
 		System.out.println(name + " " + password);
-		
+
 		if (uss.validate_User(name, password)) {
 			model.setViewName("home.jsp");
 		} else {
-			model.addObject("outString", "Your UserId Or Password Seems Incorrect :)\n Try Again! \nOr Create New Account :)");
+			model.addObject("outString",
+					"Your UserId Or Password Seems Incorrect :)\n Try Again! \nOr Create New Account :)");
 			model.setViewName("Login.jsp");
 		}
 		return model;
 	}
-
-	@Autowired
-	UserRepositoryImpl usb;
 
 	@RequestMapping(value = "/create", method = RequestMethod.GET)
 	public ModelAndView createuser(@RequestParam String first, @RequestParam String last, @RequestParam String email,

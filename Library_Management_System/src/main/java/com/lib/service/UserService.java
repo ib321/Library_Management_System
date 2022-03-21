@@ -18,7 +18,7 @@ public class UserService {
 		usempl.saveUser(user);
 	}
 	
-	public ArrayList<User> getAllUser(User user) {
+	public ArrayList<User> getAllUser() {
 		return (ArrayList<User>) usempl.getAllUser();
 	}
 	

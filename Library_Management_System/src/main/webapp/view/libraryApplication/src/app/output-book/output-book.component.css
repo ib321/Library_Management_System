@@ -1,0 +1,17 @@
+h1 {
+  color: #0ae312;
+}
+
+table,
+th,
+td {
+  width: 40%;
+  background-color: white;
+  border: 1px solid black;
+}
+
+.body {
+  background-color: white;
+  background-image: url("https://w0.peakpx.com/wallpaper/339/896/HD-wallpaper-library-concepts-stack-of-books-education-background-books-background-with-books-books-on-the-table.jpg");
+  background-size: cover;
+}

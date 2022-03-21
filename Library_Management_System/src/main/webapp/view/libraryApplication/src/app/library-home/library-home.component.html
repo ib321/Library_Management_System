@@ -1,0 +1,55 @@
+<div class="body">
+  <div style="color: white" align="right">
+    <h4 align="right">
+      <br />
+      <a style="color: green" href="/login"><button>Log out</button> </a>
+    </h4>
+  </div>
+  <div align="center">
+    <h1 style="color: red">LIBRARY MANAGEMENT SYSTEM</h1>
+    <br />
+    <br />
+    <br /><br />
+    <input
+      class="anchor1"
+      type="button"
+      value="Search All Book"
+      (click)="showAllBooks()"
+    />
+    <br />
+    <br />
+    <div id="bk"></div>
+    <input
+      class="anchor1"
+      type="button"
+      value="Search Book by Name "
+      (click)="showBookByName()"
+    />
+    <br />
+    <br />
+    <br />
+    <br />
+    <input
+      class="anchor2"
+      type="button"
+      value="Search By Author"
+      (click)="showBookByAuthor()"
+    />
+    <br />
+    <br />
+    <div id="au"></div>
+    <br />
+    <br />
+    <input
+      class="anchor3"
+      type="button"
+      value="Search By Category"
+      (click)="showBookByCategory()"
+    />
+    <br />
+    <br />
+    <div id="cat"></div>
+    <br />
+    <br />
+  </div>
+</div>

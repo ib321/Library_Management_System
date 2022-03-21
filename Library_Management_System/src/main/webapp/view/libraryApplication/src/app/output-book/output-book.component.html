@@ -1,0 +1,40 @@
+<div class="body">
+  <div style="color: white" align="right">
+    <h4 align="justify" style="color: white">
+      <br />
+      <input type="button" value="Home" onCLick="history.back()" />
+    </h4>
+    <h4 align="right">
+      <br />
+      <a style="color: green" href="/login"><button>Logout</button> </a>
+    </h4>
+  </div>
+
+  <div align="center">
+    <h1>Book List</h1>
+
+    <table border="1">
+      <thead>
+        <tr>
+          <th>BookNo</th>
+          <th>BookName</th>
+          <th>Author</th>
+          <th>Category</th>
+          <th>Available</th>
+        </tr>
+
+        <tr></tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let book of Books">
+          <td>{{ book.id }}</td>
+          <td>{{ book.name }}</td>
+          <td>{{ book.author }}</td>
+          <td>{{ book.category }}</td>
+          <td>{{ this.checkAvailability(book.returnDate) }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import com.lib.model.Book;
 
 public class BookRepositoryImpl {
+	
 	@Autowired
 	private BookRepository repository;
 

@@ -6,49 +6,93 @@
     </h4>
   </div>
   <div align="center">
-    <h1 style="color: red">LIBRARY MANAGEMENT SYSTEM</h1>
+    <div class="card1">
+      <h1
+        style="
+          color: rgb(211, 0, 0);
+          font-family: 'serif', 'Courier New', 'monospace';
+        "
+      >
+        LIBRARY MANAGEMENT SYSTEM
+      </h1>
+    </div>
     <br />
-    <br />
-    <br /><br />
-    <input class="anchor1" type="button" value="Search Book by Name " (click)="booknamestatus()" />
-    <br /><br />
+    <br /><br /><br />
+    <div class="card2">
+      <br />
+      <input
+        class="anchor1"
+        type="button"
+        value="Search Book by Name "
+        (click)="booknamestatus()"
+      />
+      <br /><br />
 
-    <div *ngIf="namestatus" id="bk">
-      <form #nameform="ngForm" (ngSubmit)="showBookByName(nameform)">
-        <label for="name"></label>
-        <!--input name="name" required ngModel type="text" id="name " / -->
-        <input name="name" required [(ngModel)]="book.name" type="text" id="name " />
-        <input class="button" type="Submit" value="Search"/>
-      </form>
-    </div>
-    <br />
-    <br />
+      <div *ngIf="namestatus" id="bk">
+        <form #nameform="ngForm" (ngSubmit)="showBookByName(nameform)">
+          <label for="name"></label>
+          <!--input name="name" required ngModel type="text" id="name " / -->
+          <input
+            name="name"
+            required
+            [(ngModel)]="book.name"
+            type="text"
+            id="name "
+          />
+          <input class="button" type="Submit" value="Search" />
+        </form>
+      </div>
+      <br />
+      <br />
 
-    <input class="anchor2" type="button" value="Search By Author" (click)="bookauthorstatus()" />
-    <br />
-    <br />
-    <div *ngIf="authorstatus" id="au">
-      <form #form2="ngForm" (ngSubmit)="showBookByAuthor(form2)">
-        <label for="author"></label>
-        <!-- input name="author" required ngModel type="text" id="author "/ -->
-        <input name="author" required [(ngModel)]="book.author" type="text" id="author "/>
-        <input class="button" type="Submit" value="Search" />
-      </form>
+      <input
+        class="anchor2"
+        type="button"
+        value="Search By Author"
+        (click)="bookauthorstatus()"
+      />
+      <br />
+      <br />
+      <div *ngIf="authorstatus" id="au">
+        <form #form2="ngForm" (ngSubmit)="showBookByAuthor(form2)">
+          <label for="author"></label>
+          <!-- input name="author" required ngModel type="text" id="author "/ -->
+          <input
+            name="author"
+            required
+            [(ngModel)]="book.author"
+            type="text"
+            id="author "
+          />
+          <input class="button" type="Submit" value="Search" />
+        </form>
+      </div>
+      <br />
+      <br />
+      <input
+        class="anchor3"
+        type="button"
+        value="Search By Category"
+        (click)="bookcatstatus()"
+      />
+      <br />
+      <br />
+      <div *ngIf="catstatus" id="cat">
+        <form #form3="ngForm" (ngSubmit)="showBookByCategory(form3)">
+          <label for="category"></label>
+          <!-- input name="category" required ngModel type="text" id="category" / -->
+          <input
+            name="category"
+            required
+            [(ngModel)]="book.category"
+            type="text"
+            id="category"
+          />
+          <input class="button" type="Submit" value="Search" />
+        </form>
+      </div>
+      <br />
+      <br />
     </div>
-    <br />
-    <br />
-    <input class="anchor3" type="button" value="Search By Category" (click)="bookcatstatus()" />
-    <br />
-    <br />
-    <div *ngIf="catstatus" id="cat">
-      <form #form3="ngForm" (ngSubmit)="showBookByCategory(form3)">
-        <label for="category"></label>
-        <!-- input name="category" required ngModel type="text" id="category" / -->
-        <input name="category" required [(ngModel)]="book.category" type="text" id="category" />
-        <input class="button" type="Submit" value="Search" />
-      </form>
-    </div>
-    <br />
-    <br />
   </div>
 </div>

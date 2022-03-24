@@ -1,5 +1,6 @@
 package com.lib.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -8,12 +9,19 @@ import javax.persistence.Table;
 @Table(name="\"user\"")
 public class User {
 	@Id
+	@Column(name="userid")
 	String userid;
+	@Column(name="first")
 	String first;
+	@Column(name="last")
 	String last;
+	@Column(name="email")
 	String email;
+	@Column(name="phone")
 	Long phone;
+	@Column(name="password")
 	String password;
+	@Column(name="address")
 	String address;
 	
 	

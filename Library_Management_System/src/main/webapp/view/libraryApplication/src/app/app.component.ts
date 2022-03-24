@@ -9,5 +9,6 @@ import { BookService } from './service/book.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent{
+  title: any;
   
 }

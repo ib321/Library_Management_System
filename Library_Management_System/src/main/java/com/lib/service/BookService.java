@@ -1,7 +1,6 @@
 package com.lib.service;
 
 import java.util.ArrayList;
-import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,59 +11,48 @@ import com.lib.repository.BookRepositoryImpl;
 @Service
 public class BookService {
 	@Autowired
-	private BookRepositoryImpl bkr;
+	private BookRepositoryImpl bookRepositoryImpl;
 
-	public static String checkAvailability(Date returnDate) {
-		Date d = new Date();
-		int check = d.compareTo(returnDate);
-		if (check < 0)
-			return "Unavailable";
-		else if (check > 0)
-			return "Available";
-		else if (check == 0)
-			return "Unavailable";
-		else
-			return "Unavailable";
-	
-	}
-	public ArrayList<Book> GetAllBook() {
+	public ArrayList<Book> getAllBook() {
 
 		ArrayList<Book> ListAll = new ArrayList<Book>();
 		try {
 
-			ListAll = bkr.allthebook();
+			ListAll = bookRepositoryImpl.allBook();
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
 		return ListAll;
 	}
-	
-	public ArrayList<Book> GetBookByName(String name) {
+
+	public ArrayList<Book> getBookByName(String name) {
 		ArrayList<Book> nameList = new ArrayList<Book>();
 		try {
-			nameList = bkr.findByName(name);
+			nameList = bookRepositoryImpl.findByName(name);
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
 		return nameList;
 	}
-	public ArrayList<Book> GetBookByAuthor(String author) {
+
+	public ArrayList<Book> getBookByAuthor(String author) {
 		ArrayList<Book> authList = new ArrayList<Book>();
 		try {
-			authList = bkr.findByAuthor(author);
+			authList = bookRepositoryImpl.findByAuthor(author);
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
 		return authList;
 	}
-	public ArrayList<Book> GetBookByCategory(String category) {
+
+	public ArrayList<Book> getBookByCategory(String category) {
 		ArrayList<Book> catList = new ArrayList<Book>();
 		try {
-			catList = bkr.findByCategory(category);
+			catList = bookRepositoryImpl.findByCategory(category);
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
 		return catList;
 	}
-		
+
 }

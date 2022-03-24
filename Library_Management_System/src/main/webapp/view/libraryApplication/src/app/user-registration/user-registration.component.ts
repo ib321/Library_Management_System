@@ -17,8 +17,11 @@ export class UserRegistrationComponent implements OnInit {
    onSubmit() {
     this.bookService.registerUser(this.user).subscribe(data => {this.gotoLogInPage()});
   }
+  confrm: string="fromRegistration";
+  name:string='';
 gotoLogInPage(){
-  this.router.navigate(['/userLogin']);
+  this.name=this.user.first+" "+this.user.last;
+  this.router.navigate([`/userLogin/${this.confrm}/${this.name}`]);
 }
   ngOnInit(): void {
   }

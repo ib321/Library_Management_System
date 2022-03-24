@@ -5,30 +5,38 @@
   </h4>
   <div align="center">
     <div class="card-body">
-      <h1 style="text-decoration: underline; color: rgb(156, 70, 13)">
-        User Registration
-      </h1>
-      <h4>Register Yourself Here To Explore:)</h4>
-
+      <h1>User Registration</h1>
+      <h4>Register Yourself Here To Explore Library Application</h4>
       <form (ngSubmit)="onSubmit()" #UserRegistration="ngForm">
         <div class="form-group">
-          <label><b>UserId: </b></label>
-
+          <label><b>User ID: </b></label>
           <input
             type="text"
             [(ngModel)]="user.userid"
             class="form-control"
+            required
+            minlength="4"
             id="userid"
             name="userid"
             placeholder=""
             required
             #userid="ngModel"
           />
+          <div
+            *ngIf="userid.invalid && (userid.dirty || userid.touched)"
+            class="alert"
+          >
+            <div *ngIf="userid.errors?.['required']">
+              <b> **User Id is Required</b>
+            </div>
+            <div *ngIf="userid.errors?.['minlength']">
+              <b> **User Id must be at least 4 characters Long</b>
+            </div>
+          </div>
         </div>
-
         <br />
         <div class="form-group">
-          <label for="fname"><b>FirstName: </b></label>
+          <label for="fname"><b>First Name:</b></label>
           <input
             type="text"
             [(ngModel)]="user.first"
@@ -39,18 +47,18 @@
             required
             #fname="ngModel"
           />
-        </div>
-
-        <div
-          style="color: rgba(255, 0, 0, 0.705)"
-          [hidden]="!fname.pristine"
-          class="alert alert-danger"
-        >
-          <b>**firstname is required </b>
+          <div
+            *ngIf="fname.invalid && (lname.dirty || fname.touched)"
+            class="alert"
+          >
+            <div *ngIf="fname.errors?.['required']">
+              <b>**First Name is required</b>
+            </div>
+          </div>
         </div>
         <br />
         <div class="form-group">
-          <label for="lname"><b>LastName: </b></label>
+          <label for="lname"><b>Last Name: </b></label>
           <input
             type="text"
             [(ngModel)]="user.last"
@@ -61,21 +69,23 @@
             required
             #lname="ngModel"
           />
-        </div>
-        <div
-          style="color: rgba(255, 0, 0, 0.705)"
-          [hidden]="!lname.pristine"
-          class="alert alert-danger"
-        >
-          <b> **lastname is required</b>
+          <div
+            *ngIf="lname.invalid && (lname.dirty || lname.touched)"
+            class="alert"
+          >
+            <div *ngIf="lname.errors?.['required']">
+              <b>**Last Name is required</b>
+            </div>
+          </div>
         </div>
         <br />
         <div class="form-group">
-          <label for="email"><b>Email: </b></label>
+          <label for="email"><b>Email ID: </b></label>
           <input
             type="text"
             [(ngModel)]="user.email"
             class="form-control"
+            pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
             id="email"
             name="email"
             placeholder=""
@@ -83,26 +93,44 @@
             #email="ngModel"
           />
           <div
-            style="color: rgba(255, 0, 0, 0.705)"
-            [hidden]="!email.pristine"
-            class="alert alert-danger"
+            *ngIf="email.invalid && (email.dirty || email.touched)"
+            class="alert"
           >
-            <b>**Email is required</b>
+            <div *ngIf="email.errors?.['required']">
+              <b>**Email ID is required</b>
+            </div>
+            <div *ngIf="email.errors?.['pattern']">
+              <b>**Email must Contain @ And . Characters</b>
+            </div>
           </div>
-          <br />
         </div>
+        <br />
+
         <div class="form-group">
-          <label for="phone number"><b> Phoneno: </b></label>
+          <label for="phone number"><b> Phone Number: </b></label>
           <input
             type="text"
             [(ngModel)]="user.phone"
             class="form-control"
+            required
+            minlength="10"
             id="phone"
             name="phone"
             placeholder=""
             required
             #phone="ngModel"
           />
+          <div
+            *ngIf="phone.invalid && (phone.dirty || phone.touched)"
+            class="alert"
+          >
+            <div *ngIf="phone.errors?.['required']">
+              <b>**Phone Number is required</b>
+            </div>
+            <div *ngIf="phone.errors?.['minlength']">
+              <b>**Phone Number must be at least 10 digits long</b>
+            </div>
+          </div>
         </div>
         <br />
         <div class="form-group">
@@ -111,16 +139,32 @@
             type="text"
             [(ngModel)]="user.password"
             class="form-control"
+            pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}"
             id="password"
             name="password"
             placeholder=""
             required
             #password="ngModel"
           />
+          <div
+            *ngIf="password.invalid && (password.dirty || password.touched)"
+            class="alert"
+          >
+            <div *ngIf="password.errors?.['required']">
+              <b> **Password is required</b>
+            </div>
+            <br />
+            <div *ngIf="password.errors?.['pattern']">
+              <b
+                >**Password must contain at least one Number,one UPPERCASE, one
+                lowercase letter,At least 6 characters</b
+              >
+            </div>
+          </div>
         </div>
         <br />
         <div class="form-group">
-          <label for="confirm password"><b>Confirm Password: </b></label>
+          <label for="c_password"><b>Confirm Password: </b></label>
           <input
             type="text"
             class="form-control"
@@ -146,14 +190,9 @@
             #address="ngModel"
           />
         </div>
-
         <br />
         <div align="center">
-          <button
-            type="submit"
-            [disabled]="!UserRegistration.form.valid"
-            class="btn btn-info"
-          >
+          <button type="submit" [disabled]="!UserRegistration.form.valid">
             <b> Submit</b>
           </button>
         </div>

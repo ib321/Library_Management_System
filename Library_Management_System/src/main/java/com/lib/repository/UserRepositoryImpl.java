@@ -10,14 +10,14 @@ import com.lib.model.User;
 public class UserRepositoryImpl {
 
 	@Autowired
-	UserRepository userrepo;
+	UserRepository userRepository;
 
 	public void saveUser(User user) {
-		userrepo.save(user);
+		userRepository.save(user);
 	}
 	
 	public ArrayList<User> getAllUser() {
-		return (ArrayList<User>) userrepo.findAll();
+		return (ArrayList<User>) userRepository.findAll();
 	}
 
 

@@ -1,7 +1,30 @@
 .html {
-  height: 600px;
-  background: url("https://w0.peakpx.com/wallpaper/972/48/HD-wallpaper-stack-of-books-blue-background-education-concepts-books-library-school-learning-concepts.jpg")
-    no-repeat center;
+  background: url("../../assets/images/login.jpg") no-repeat center;
   background-size: 100%;
-  background-position: top center;
+}
+.alert {
+  color: rgb(163, 22, 0);
+}
+/* Organized in alphabetical order */
+h1,
+h4 {
+  text-decoration: underline;
+  color: rgb(12, 241, 115);
+}
+.card-body {
+  text-align: center;
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+label {
+  display: inline-block;
+  margin-right: 5px;
+}
+
+input {
+  align-content: center;
+}
+form {
+  width: 210px;
+  margin: 0 auto;
 }

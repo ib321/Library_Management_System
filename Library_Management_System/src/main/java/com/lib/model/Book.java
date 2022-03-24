@@ -2,6 +2,7 @@ package com.lib.model;
 
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -9,20 +10,25 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 /*
- * Entity Class With Annotation 
+ * Book Entity/Model Class With Annotation 
  * To Define The Table Structure Of Database 
- * @Ib
+ * using Relational Model
  */
 
 @Entity
 @Table(name = "Book")
 public class Book {
 	@Id
+	@Column(name="ID")
 	private int id;
+	@Column(name="NAME")
 	private String name;
+	@Column(name="AUTHOR")
 	private String author;
+	@Column(name="CATEGORY")
 	private String category;
 	@Temporal(TemporalType.DATE)
+	@Column(name="Return_Date")
 	private Date returnDate;
 
 	public Book() {

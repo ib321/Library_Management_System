@@ -14,7 +14,8 @@ const routes: Routes = [
   
   {path:'libraryhome', component: LibraryHomeComponent},
   {path:'userRegistration', component: UserRegistrationComponent},
-  {path:'userLogin', component: UserLoginComponent}
+  {path:'userLogin', component: UserLoginComponent},
+  {path:'userLogin/:confirm/:name', component: UserLoginComponent}
 ];
 
 @NgModule({

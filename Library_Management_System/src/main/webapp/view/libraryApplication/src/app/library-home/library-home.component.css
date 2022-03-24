@@ -1,6 +1,6 @@
 .body {
   background-color: grey;
-  background-image: url("https://images.unsplash.com/photo-1481627834876-b7833e8f5570?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bGlicmFyeXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60");
+  background-image: url("../../assets/images/home.jpg");
   height: 550px;
   background-position: center;
   background-repeat: no-repeat;
@@ -8,6 +8,28 @@
   background-size: cover;
 }
 
+.card1 {
+  height: 100px;
+  width: 500px !important;
+  display: inline-block;
+}
+.card2 {
+  height: 280px;
+  width: 300px !important;
+  display: inline-block;
+}
+.card1,
+.card2 {
+  margin-right: auto;
+  margin-left: auto;
+  box-shadow: 0 15px 25px rgba(129, 124, 124, 0.2);
+
+  border-radius: 5px;
+  backdrop-filter: blur(14px);
+  background-color: rgba(255, 255, 255, 0.2);
+  padding: 10px;
+  text-align: center;
+}
 .anchor1 {
   background-color: white;
   border: 2px solid #42f4ce;

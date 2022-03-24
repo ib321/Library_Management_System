@@ -21,9 +21,16 @@ export class UserLoginComponent implements OnInit {
   constructor(private bookService: BookService, private router: Router, private route:ActivatedRoute) {
 
    }
-
+   registrationStatus:boolean=false;
+   regname:string='';
   ngOnInit(): void {
     this.bookService.getAllUser().subscribe(alluser => this.users = alluser);
+    this.route.params.subscribe( (parameters)=>{
+		
+      if (String(parameters['confirm']).localeCompare('fromRegistration') == 0) {
+        this.regname=String(parameters['name']);
+        this.registrationStatus=true;
+      }});
   }
 
   userLogin(formdata: NgForm) {
@@ -31,7 +38,6 @@ export class UserLoginComponent implements OnInit {
 
     this.users.forEach(user => {
       if (user.userid == this.formData.username && user.password == this.formData.password) {
-
         this.status = true;
         this.name = user.first + " " + user.last;
       }

@@ -36,7 +36,6 @@ export class LibraryHomeComponent implements OnInit {
     this.formData = formdata.value;
     console.log(this.formData.name);
     this.searchtype = 'byname';
-    //this.router.navigate([`bookByName/${this.formData.name}`]);
     this.router.navigate([`bookByName/${this.book.name}/${this.searchtype}`]);
   }
   authorstatus: boolean = false;
@@ -51,7 +50,6 @@ export class LibraryHomeComponent implements OnInit {
     this.formData = formData2.value;
     console.log(this.formData.author);
     this.searchtype = 'byauthor';
-    //this.router.navigate([`bookByAuthor/${this.formData.author}`]);
     this.router.navigate([`bookByAuthor/${this.book.author}/${this.searchtype}`]);
 
   }
@@ -69,13 +67,8 @@ export class LibraryHomeComponent implements OnInit {
     this.formData = formData3.value;
     console.log(this.formData.category);
     this.searchtype = 'bycategory';
-    //this.router.navigate([`bookByCategory/${this.formData.category}`]);
     this.router.navigate([`bookByCategory/${this.book.category}/${this.searchtype}`]);
   }
-
-
-
-
   ngOnInit(): void {
 
   }

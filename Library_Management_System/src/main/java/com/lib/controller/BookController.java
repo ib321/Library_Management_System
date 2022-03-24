@@ -1,15 +1,12 @@
 package com.lib.controller;
 
 import java.util.ArrayList;
-
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.lib.model.Book;
@@ -33,7 +30,7 @@ public class BookController {
 
 	@PostMapping(path = "/registerUser", consumes = "application/json")
 	public void addUser(@RequestBody User user) {
-		userService.InsertUser(user);
+		userService.insertUser(user);
 	}
 
 	@GetMapping(path = "/allUserList", produces = "application/json")
@@ -41,29 +38,29 @@ public class BookController {
 		return userService.getAllUser();
 	}
 
-	@GetMapping(path = "/validateUser", produces = "application/json")
-	public boolean validateUser(@RequestParam String name, @RequestParam String password) {
-		return userService.validate_User(name, password);
+	@GetMapping(path = "/validateUser/{name}/{password}", produces = "application/json")
+	public boolean validateUser(@PathVariable String name, @PathVariable String password) {
+		return userService.validateUser(name, password);
 	}
 
 	@GetMapping(path = "/booksList", produces = "application/json")
-	public ArrayList<Book> getAll() {
-		return bookService.GetAllBook();
+	public ArrayList<Book> getAllBook() {
+		return bookService.getAllBook();
 	}
 
 	@GetMapping(path = "/name/{name}", produces = "application/json")
-	public ArrayList<Book> searchName(@PathVariable String name) {
-		return bookService.GetBookByName(name);
+	public ArrayList<Book> searchByName(@PathVariable String name) {
+		return bookService.getBookByName(name);
 	}
 
 	@GetMapping(path = "/author/{author}", produces = "application/json")
-	public ArrayList<Book> searchAuthor(@PathVariable String author) {
-		return bookService.GetBookByAuthor(author);
+	public ArrayList<Book> searchByAuthor(@PathVariable String author) {
+		return bookService.getBookByAuthor(author);
 	}
 
 	@GetMapping(path = "/category/{category}", produces = "application/json")
-	public ArrayList<Book> searchcategory(@PathVariable String category) {
-		return bookService.GetBookByCategory(category);
+	public ArrayList<Book> searchByCategory(@PathVariable String category) {
+		return bookService.getBookByCategory(category);
 	}
 
 	

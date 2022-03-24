@@ -1,8 +1,8 @@
 .body,
 .hero-image {
   background-color: grey;
-  background-image: url("https://w0.peakpx.com/wallpaper/972/48/HD-wallpaper-stack-of-books-blue-background-education-concepts-books-library-school-learning-concepts.jpg");
-  height: 650px;
+  background-image: url("../../assets/images/login.jpg");
+  height: 550px;
   background-position: center;
   background-repeat: no-repeat;
   background-size: 100%;

@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import {Book} from '../model/Book';
-
+import { BookService } from '../service/book.service';
 @Component({
   selector: 'app-library-home',
   templateUrl: './library-home.component.html',
@@ -15,10 +15,10 @@ export class LibraryHomeComponent implements OnInit {
 
   searchtype:string = '';
 
-  constructor(private router: Router) {
+  constructor(private router: Router,private route: ActivatedRoute,private bookService:BookService) {
     this.book = new Book(0,'','','',this.currentdate);
   }
-  public formData: any = {};
+
 
   showAllBooks() {
     let all: string = "all";
@@ -32,9 +32,7 @@ export class LibraryHomeComponent implements OnInit {
     this.catstatus=false;
   }
 
-  showBookByName(formdata: NgForm) {
-    this.formData = formdata.value;
-    console.log(this.formData.name);
+  showBookByName() {
     this.searchtype = 'byname';
     this.router.navigate([`bookByName/${this.book.name}/${this.searchtype}`]);
   }
@@ -44,11 +42,8 @@ export class LibraryHomeComponent implements OnInit {
      this.catstatus=false; 
        this.namestatus = false;
   }
-  public formData2: any = {};
 
-  showBookByAuthor(formData2: NgForm) {
-    this.formData = formData2.value;
-    console.log(this.formData.author);
+  showBookByAuthor() {
     this.searchtype = 'byauthor';
     this.router.navigate([`bookByAuthor/${this.book.author}/${this.searchtype}`]);
 
@@ -61,16 +56,17 @@ export class LibraryHomeComponent implements OnInit {
     this.authorstatus=false;
   }
 
-  public formData3: any = {};
 
-  showBookByCategory(formData3: NgForm) {
-    this.formData = formData3.value;
-    console.log(this.formData.category);
+  showBookByCategory() {
     this.searchtype = 'bycategory';
     this.router.navigate([`bookByCategory/${this.book.category}/${this.searchtype}`]);
   }
+  username:string='';
+  
   ngOnInit(): void {
+    this.route.params.subscribe( (parameters)=>{
+      this.username=String(parameters['userName']);
+  });
 
   }
-
 }

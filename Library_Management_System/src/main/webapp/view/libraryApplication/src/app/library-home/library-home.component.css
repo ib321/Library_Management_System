@@ -1,16 +1,22 @@
 .body {
   background-color: grey;
   background-image: url("../../assets/images/home.jpg");
-  height: 550px;
   background-position: center;
   background-repeat: no-repeat;
   background-size: 100%;
   background-size: cover;
+  height: 700px;
 }
-
+.name {
+  text-align: right;
+  color: #ecf5f8;
+}
+.home {
+  font-family: "Dawning of a New Day";
+}
 .card1 {
   height: 100px;
-  width: 500px !important;
+  width: 600px !important;
   display: inline-block;
 }
 .card2 {

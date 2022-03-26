@@ -38,7 +38,7 @@ public class BookController {
 		return userService.getAllUser();
 	}
 
-	@GetMapping(path = "/validateUser/{name}/{password}", produces = "application/json")
+	@GetMapping(path = "/validateUser/{name}/{password}", produces = "text/html")
 	public boolean validateUser(@PathVariable String name, @PathVariable String password) {
 		return userService.validateUser(name, password);
 	}

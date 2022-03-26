@@ -24,9 +24,10 @@ export class UserLoginComponent implements OnInit {
    registrationStatus:boolean=false;
    regname:string='';
   ngOnInit(): void {
+
     this.bookService.getAllUser().subscribe(alluser => this.users = alluser);
+
     this.route.params.subscribe( (parameters)=>{
-		
       if (String(parameters['confirm']).localeCompare('fromRegistration') == 0) {
         this.regname=String(parameters['name']);
         this.registrationStatus=true;
@@ -45,7 +46,7 @@ export class UserLoginComponent implements OnInit {
     });
 
     if (this.status == true) {
-      this.router.navigate(['libraryhome']);
+      this.router.navigate([`libraryhome/${this.name}`]);
     }
     else {
       this.error = true;

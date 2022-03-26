@@ -14,7 +14,7 @@ export class OutputBookComponent implements OnInit {
    Books:Book[]=[];
  
   ngOnInit(): void {
-	console.log("in the output");
+	  
 	this.Books=[];
 	this.route.params.subscribe( (parameters)=>{
 		

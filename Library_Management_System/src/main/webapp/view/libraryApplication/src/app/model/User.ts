@@ -5,7 +5,7 @@ export class User {
     first: String = '';
     last: String = '';
     email: String = '';
-    phone: Number = 0;
+    phone: Number | undefined ;
     password: String = '';
     address: String = '';
 

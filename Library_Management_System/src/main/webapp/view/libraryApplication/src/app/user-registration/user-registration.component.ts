@@ -19,6 +19,7 @@ export class UserRegistrationComponent implements OnInit {
   }
   confrm: string="fromRegistration";
   name:string='';
+  
 gotoLogInPage(){
   this.name=this.user.first+" "+this.user.last;
   this.router.navigate([`/userLogin/${this.confrm}/${this.name}`]);

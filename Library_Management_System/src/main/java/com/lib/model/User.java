@@ -5,6 +5,11 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+/*
+ * User Entity/Model Class With Annotation 
+ * To Define The Table Structure Of Database 
+ * using Relational Model
+ */
 @Entity
 @Table(name="\"user\"")
 public class User {

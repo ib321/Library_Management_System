@@ -7,6 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.lib.model.User;
 
+/*
+ * Implementing the UserRepository Class to do  Database operation
+ */
 public class UserRepositoryImpl {
 
 	@Autowired

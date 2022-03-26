@@ -15,6 +15,10 @@ import com.lib.model.User;
 import com.lib.service.BookService;
 import com.lib.service.UserService;
 
+/*
+ * Rest Controller Class For All the Rest API operation
+ * All the Methods are mapped for Different operations
+ */
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
 public class BookController {
@@ -25,9 +29,11 @@ public class BookController {
 	private UserService userService;
 
 	public BookController() {
-		System.out.println("---Inside Constructor BookController---");
 	}
-
+	/*
+	 * Rest API method for User Operation
+	 * Register user, All user, Validate User 
+	 */
 	@PostMapping(path = "/registerUser", consumes = "application/json")
 	public void addUser(@RequestBody User user) {
 		userService.insertUser(user);
@@ -42,6 +48,11 @@ public class BookController {
 	public boolean validateUser(@PathVariable String name, @PathVariable String password) {
 		return userService.validateUser(name, password);
 	}
+	
+	/* Rest API method for Book Operation
+	 * All the book list, Book List Using Name
+	 * Book list Using Category And book List Using Author 
+	 */
 
 	@GetMapping(path = "/booksList", produces = "application/json")
 	public ArrayList<Book> getAllBook() {

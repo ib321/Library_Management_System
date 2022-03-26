@@ -6,6 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.lib.model.Book;
 
+/*
+ * Implementing the BookRepository Class to do All the Database operation
+ */
 public class BookRepositoryImpl {
 	
 	@Autowired

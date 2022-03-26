@@ -2,9 +2,17 @@
   <div class="name">
     <h3>Hello! {{ username | titlecase }}.</h3>
   </div>
-  <div style="color: white" align="right">
-    <a style="color: green" href="/userLogin"><button>Log out</button> </a>
+  <div>
+    <a href="/userLogin"
+      ><button
+        style="float: right; padding: 7px 16px; font-size: medium"
+        class="button"
+      >
+        Log out
+      </button>
+    </a>
   </div>
+  <br /><br />
   <div align="center">
     <div class="card1">
       <h1 style="color: rgb(211, 0, 0); font-family: cursive">
@@ -16,7 +24,7 @@
     <div class="card2">
       <br />
       <input
-        class="anchor1"
+        class="anchor2"
         type="button"
         value="Search Book by Name "
         (click)="booknamestatus()"
@@ -63,7 +71,7 @@
       <br />
       <br />
       <input
-        class="anchor3"
+        class="anchor2"
         type="button"
         value="Search By Category"
         (click)="bookcatstatus()"

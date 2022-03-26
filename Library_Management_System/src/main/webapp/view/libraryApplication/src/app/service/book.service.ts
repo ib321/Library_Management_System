@@ -13,7 +13,6 @@ export class BookService {
   private BookByCategUrl: string;
   private AllUserList: string;
   private registerUserUrl:string;
-
   private AllBooksUrl: string;
   private validateUserUrl: string;
 
@@ -27,12 +26,16 @@ export class BookService {
     this.BookByCategUrl='http://localhost:8098/category/';
 
     this.AllBooksUrl = 'http://localhost:8098/list';
-    this.validateUserUrl='http://localhost:8098/validateUser';
+    this.validateUserUrl='http://localhost:8098/validateUser/';
   }
+
+  public validateUser(userName:string,password:string):Observable<boolean>{
+    return this.http.get<boolean>(this.validateUserUrl); }
 
   public getAllUser(): Observable<User[]>{
     return this.http.get<User[]>(this.AllUserList);
   }
+  
  public registerUser(user: User) {
   return this.http.post<User>(this.registerUserUrl, user);
   }
@@ -49,6 +52,5 @@ export class BookService {
    // public findAllBook(): Observable<Book[]>{
   //   return this.http.get<Book[]>(this.AllBooksUrl);
   // }
- // public validateUser(userName:string,password:string):Observable{
-  //return this.http.get<User[]>(this.AllUserList); }
+ 
 }

@@ -1,18 +1,13 @@
 <div class="body">
+  <div class="name">
+    <h3>Hello! {{ username | titlecase }}.</h3>
+  </div>
   <div style="color: white" align="right">
-    <h4 align="right">
-      <br />
-      <a style="color: green" href="/userLogin"><button>Log out</button> </a>
-    </h4>
+    <a style="color: green" href="/userLogin"><button>Log out</button> </a>
   </div>
   <div align="center">
     <div class="card1">
-      <h1
-        style="
-          color: rgb(211, 0, 0);
-          font-family: 'serif', 'Courier New', 'monospace';
-        "
-      >
+      <h1 style="color: rgb(211, 0, 0); font-family: cursive">
         LIBRARY MANAGEMENT SYSTEM
       </h1>
     </div>
@@ -29,9 +24,8 @@
       <br /><br />
 
       <div *ngIf="namestatus" id="bk">
-        <form #nameform="ngForm" (ngSubmit)="showBookByName(nameform)">
+        <form #nameform="ngForm" (ngSubmit)="showBookByName()">
           <label for="name"></label>
-          <!--input name="name" required ngModel type="text" id="name " / -->
           <input
             name="name"
             required
@@ -54,9 +48,8 @@
       <br />
       <br />
       <div *ngIf="authorstatus" id="au">
-        <form #form2="ngForm" (ngSubmit)="showBookByAuthor(form2)">
+        <form #form2="ngForm" (ngSubmit)="showBookByAuthor()">
           <label for="author"></label>
-          <!-- input name="author" required ngModel type="text" id="author "/ -->
           <input
             name="author"
             required
@@ -78,9 +71,8 @@
       <br />
       <br />
       <div *ngIf="catstatus" id="cat">
-        <form #form3="ngForm" (ngSubmit)="showBookByCategory(form3)">
+        <form #form3="ngForm" (ngSubmit)="showBookByCategory()">
           <label for="category"></label>
-          <!-- input name="category" required ngModel type="text" id="category" / -->
           <input
             name="category"
             required

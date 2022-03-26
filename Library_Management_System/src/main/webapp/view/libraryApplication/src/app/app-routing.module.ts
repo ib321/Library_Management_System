@@ -12,6 +12,7 @@ const routes: Routes = [
   {path:'bookByAuthor/:author/:searchtype', component: OutputBookComponent},
   {path:'bookByCategory/:category/:searchtype', component: OutputBookComponent},
   
+  {path:'libraryhome/:userName', component: LibraryHomeComponent},
   {path:'libraryhome', component: LibraryHomeComponent},
   {path:'userRegistration', component: UserRegistrationComponent},
   {path:'userLogin', component: UserLoginComponent},

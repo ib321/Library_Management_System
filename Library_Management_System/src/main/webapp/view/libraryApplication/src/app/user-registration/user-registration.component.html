@@ -1,12 +1,14 @@
 <div class="html">
   <h4 align="justify" style="color: white">
     <br />
-    <input type="button" value="Back" onCLick="history.back()" />
+    <div class="button" align="left">
+      <input type="button" value="Back" onCLick="history.back()" />
+    </div>
   </h4>
   <div align="center">
-    <div class="card-body">
-      <h1>User Registration</h1>
-      <h4>Register Yourself Here To Explore Library Application</h4>
+    <h1>User Registration</h1>
+    <h4>Register Yourself Here To Explore Library Application</h4>
+    <div class="container">
       <form (ngSubmit)="onSubmit()" #UserRegistration="ngForm">
         <div class="form-group">
           <label><b>User ID: </b></label>
@@ -18,7 +20,7 @@
             minlength="4"
             id="userid"
             name="userid"
-            placeholder=""
+            placeholder="User ID"
             required
             #userid="ngModel"
           />
@@ -43,7 +45,7 @@
             class="form-control"
             id="fname"
             name="fname"
-            placeholder=""
+            placeholder="First Name"
             required
             #fname="ngModel"
           />
@@ -65,7 +67,7 @@
             class="form-control"
             id="lname"
             name="lname"
-            placeholder=""
+            placeholder="Last Name"
             required
             #lname="ngModel"
           />
@@ -88,7 +90,7 @@
             pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
             id="email"
             name="email"
-            placeholder=""
+            placeholder="Email ID"
             required
             #email="ngModel"
           />
@@ -116,7 +118,7 @@
             minlength="10"
             id="phone"
             name="phone"
-            placeholder=""
+            placeholder="Phone Number"
             required
             #phone="ngModel"
           />
@@ -142,7 +144,7 @@
             pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}"
             id="password"
             name="password"
-            placeholder=""
+            placeholder="Password"
             required
             #password="ngModel"
           />
@@ -170,12 +172,13 @@
             class="form-control"
             id="confirm password"
             name="confirm password"
-            placeholder=""
+            placeholder="Confirm Password"
             required
             #confirm
             password="ngModel"
           />
         </div>
+
         <br />
         <div class="form-group">
           <label for="address"><b>Address: </b></label>
@@ -185,7 +188,7 @@
             class="form-control"
             id="address"
             name="address"
-            placeholder=""
+            placeholder="Address"
             required
             #address="ngModel"
           />

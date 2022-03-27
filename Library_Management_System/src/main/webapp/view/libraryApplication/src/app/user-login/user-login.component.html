@@ -10,7 +10,11 @@
         <br />
         <br />
 
-        <form #signupForm="ngForm" (ngSubmit)="userLogin(signupForm)">
+        <form
+          ngNativeValidate
+          #signupForm="ngForm"
+          (ngSubmit)="userLogin(signupForm)"
+        >
           <label style="font-size: 20px" for="username">User Name: </label>
           <input
             class="anchor1"

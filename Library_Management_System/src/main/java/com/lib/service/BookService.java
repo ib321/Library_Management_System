@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.lib.exception.BookNotFoundException;
 import com.lib.model.Book;
 import com.lib.repository.BookRepositoryImpl;
 
@@ -19,6 +20,11 @@ public class BookService {
 		try {
 
 			ListAll = bookRepositoryImpl.allBook();
+			if(ListAll.isEmpty())
+			{
+				throw new BookNotFoundException("Book Not Found In Database");
+			}
+			
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
@@ -29,6 +35,10 @@ public class BookService {
 		ArrayList<Book> nameList = new ArrayList<Book>();
 		try {
 			nameList = bookRepositoryImpl.findByName(name);
+			if(nameList.isEmpty())
+			{
+				throw new BookNotFoundException("Book Not Found In Database");
+			}
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
@@ -39,6 +49,10 @@ public class BookService {
 		ArrayList<Book> authList = new ArrayList<Book>();
 		try {
 			authList = bookRepositoryImpl.findByAuthor(author);
+			if(authList.isEmpty())
+			{
+				throw new BookNotFoundException("Book Not Found In Database");
+			}
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
@@ -49,6 +63,10 @@ public class BookService {
 		ArrayList<Book> catList = new ArrayList<Book>();
 		try {
 			catList = bookRepositoryImpl.findByCategory(category);
+			if(catList.isEmpty())
+			{
+				throw new BookNotFoundException("Book Not Found In Database");
+			}
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}

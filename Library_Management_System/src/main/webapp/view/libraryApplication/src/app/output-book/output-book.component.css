@@ -85,3 +85,12 @@ button:active {
   box-shadow: 0 5px rgb(59, 59, 59);
   transform: translateY(6px);
 }
+.notFound {
+  text-align: center;
+  font-family: sans-serif;
+}
+
+.notFoundImage {
+  height: 450px;
+  width: 600px;
+}

@@ -3,6 +3,7 @@ import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { User } from '../model/User';
 import { BookService } from '../service/book.service';
+import { LocationStrategy } from '@angular/common';
 
 @Component({
   selector: 'app-user-login',
@@ -19,11 +20,13 @@ export class UserLoginComponent implements OnInit {
   public formData: any = {};
 
   constructor(private bookService: BookService, private router: Router, private route:ActivatedRoute) {
-
+   
    }
+   
    registrationStatus:boolean=false;
    regname:string='';
   ngOnInit(): void {
+    
 
     this.bookService.getAllUser().subscribe(alluser => this.users = alluser);
 

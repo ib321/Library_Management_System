@@ -32,11 +32,9 @@
             *ngIf="userid.invalid && (userid.dirty || userid.touched)"
             class="alert"
           >
-            <div *ngIf="userid.errors?.['required']">
-              <b> **User Id is Required</b>
-            </div>
+            <div *ngIf="userid.errors?.['required']">*User Id is Required</div>
             <div *ngIf="userid.errors?.['minlength']">
-              <b> **User Id must be at least 4 characters Long</b>
+              *User Id must be at least 4 characters Long
             </div>
           </div>
         </div>
@@ -58,7 +56,7 @@
             class="alert"
           >
             <div *ngIf="fname.errors?.['required']">
-              <b>**First Name is required</b>
+              *First Name is required
             </div>
           </div>
         </div>
@@ -79,9 +77,7 @@
             *ngIf="lname.invalid && (lname.dirty || lname.touched)"
             class="alert"
           >
-            <div *ngIf="lname.errors?.['required']">
-              <b>**Last Name is required</b>
-            </div>
+            <div *ngIf="lname.errors?.['required']">*Last Name is required</div>
           </div>
         </div>
         <br />
@@ -102,11 +98,9 @@
             *ngIf="email.invalid && (email.dirty || email.touched)"
             class="alert"
           >
-            <div *ngIf="email.errors?.['required']">
-              <b>**Email ID is required</b>
-            </div>
+            <div *ngIf="email.errors?.['required']">*Email ID is required</div>
             <div *ngIf="email.errors?.['pattern']">
-              <b>**Email must Contain @ And . Characters</b>
+              *Email must Contain @ And . Characters
             </div>
           </div>
         </div>
@@ -131,10 +125,10 @@
             class="alert"
           >
             <div *ngIf="phone.errors?.['required']">
-              <b>**Phone Number is required</b>
+              *Phone Number is required
             </div>
             <div *ngIf="phone.errors?.['minlength']">
-              <b>**Phone Number must be at least 10 digits long</b>
+              *Phone Number must be at least 10 digits long
             </div>
           </div>
         </div>
@@ -142,7 +136,7 @@
         <div class="form-group">
           <label for="password"><b> Password: </b></label>
           <input
-            type="text"
+            type="password"
             [(ngModel)]="user.password"
             class="form-control"
             pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}"
@@ -157,30 +151,33 @@
             class="alert"
           >
             <div *ngIf="password.errors?.['required']">
-              <b> **Password is required</b>
+              *Password is required
             </div>
             <br />
             <div *ngIf="password.errors?.['pattern']">
-              <b
-                >**Password must contain at least one Number,one UPPERCASE, one
-                lowercase letter,At least 6 characters</b
-              >
+              *Password must contain at least one Number,one UPPERCASE, one
+              lowercase letter,At least 6 characters
             </div>
           </div>
         </div>
         <br />
         <div class="form-group">
-          <label for="c_password"><b>Confirm Password: </b></label>
+          <label for="confirmPassword"><b>Confirm Password </b></label>
           <input
             type="text"
             class="form-control"
-            id="confirm password"
-            name="confirm password"
+            id="confirmPassword"
+            [(ngModel)]="confirmPassword"
+            name="confirmPassword"
             placeholder="Confirm Password"
+            (change)="confirmpass(confirmPassword)"
             required
-            #confirm
-            password="ngModel"
+            #password="ngModel"
           />
+
+          <div class="alert">
+            {{ missmatch }}
+          </div>
         </div>
 
         <br />

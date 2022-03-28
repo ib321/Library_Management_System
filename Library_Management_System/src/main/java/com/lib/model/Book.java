@@ -12,7 +12,7 @@ import javax.persistence.TemporalType;
 /*
  * Book Entity/Model Class With Annotation 
  * To Define The Table Structure Of Database 
- * using Relational Model
+ * using Object Relational Model
  */
 
 @Entity

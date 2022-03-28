@@ -3,7 +3,6 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Book } from '../model/Book';
 import { User } from '../model/User';
-
 @Injectable({
   providedIn: 'root'
 })
@@ -15,6 +14,7 @@ export class BookService {
   private registerUserUrl:string;
   private AllBooksUrl: string;
   private validateUserUrl: string;
+ 
 
   constructor(private http: HttpClient) { 
 

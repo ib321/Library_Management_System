@@ -14,11 +14,19 @@ public class UserRepositoryImpl {
 
 	@Autowired
 	UserRepository userRepository;
-
+	
+	
+	/*
+	 * take user model class as input and save that user into database
+	 * by using userRepository
+	 */
 	public void saveUser(User user) {
 		userRepository.save(user);
 	}
 	
+	/*
+	 * it takes all the user from database and returns list of all the user
+	 */
 	public ArrayList<User> getAllUser() {
 		return (ArrayList<User>) userRepository.findAll();
 	}

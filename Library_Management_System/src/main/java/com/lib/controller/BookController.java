@@ -36,8 +36,8 @@ public class BookController {
 	 * database by calling userService class and it is using Rest API operation
 	 */
 	@PostMapping(path = "/registerUser", consumes = "application/json")
-	public void addUser(@RequestBody User user) {
-		userService.insertUser(user);
+	public String addUser(@RequestBody User user) {
+		return userService.insertUser(user);
 	}
 
 	/*

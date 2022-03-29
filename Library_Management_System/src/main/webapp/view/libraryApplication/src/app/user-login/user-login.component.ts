@@ -20,6 +20,7 @@ export class UserLoginComponent implements OnInit {
 
   public formData: any = {};
   decryptedPassword: string = '';
+  msg: string = '';
 
   constructor(
     private bookService: BookService,
@@ -38,8 +39,14 @@ export class UserLoginComponent implements OnInit {
       if (
         String(parameters['confirm']).localeCompare('fromRegistration') == 0
       ) {
-        this.regname = String(parameters['name']);
-        this.registrationStatus = true;
+        if (String(parameters['status']) == 'true') {
+          this.regname = String(parameters['name']);
+          this.msg = `Welcome! ${this.regname}  Thank you for Registration ! Please Login to Proceed !`;
+          this.registrationStatus = true;
+        } else if (String(parameters['status']) == 'false') {
+          this.msg = `I'm Sorry! Userid already Exists. Please Try Again With Different User ID`;
+          this.registrationStatus = true;
+        }
       }
     });
   }

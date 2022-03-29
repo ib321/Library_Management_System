@@ -29,13 +29,15 @@ export class UserRegistrationComponent implements OnInit {
     ).toString();
     return this.EncryptPassword;
   }
-
+  registrationStatus: string = '';
   onSubmit() {
     let cryptuser: User = this.user;
     if (this.user.password == this.confirmPassword) {
       this.missmatch = '';
       cryptuser.password = this.encrypt(this.user.password);
       this.bookService.registerUser(cryptuser).subscribe((data) => {
+        this.registrationStatus = data;
+        console.log('in user r ' + data);
         this.gotoLogInPage();
       });
     } else {
@@ -47,7 +49,9 @@ export class UserRegistrationComponent implements OnInit {
 
   gotoLogInPage() {
     this.name = this.user.first + ' ' + this.user.last;
-    this.router.navigate([`/userLogin/${this.confrm}/${this.name}`]);
+    this.router.navigate([
+      `/userLogin/${this.confrm}/${this.name}/${this.registrationStatus}`,
+    ]);
   }
   ngOnInit(): void {}
   confirmpass(confirm: string) {

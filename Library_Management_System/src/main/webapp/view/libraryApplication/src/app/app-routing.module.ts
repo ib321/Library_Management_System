@@ -6,21 +6,24 @@ import { LibraryHomeComponent } from './library-home/library-home.component';
 import { UserRegistrationComponent } from './user-registration/user-registration.component';
 import { UserLoginComponent } from './user-login/user-login.component';
 const routes: Routes = [
-  {path: '', pathMatch:"full", redirectTo:"userLogin"},
-  
-  {path:'bookByName/:bookname/:searchtype', component: OutputBookComponent},
-  {path:'bookByAuthor/:author/:searchtype', component: OutputBookComponent},
-  {path:'bookByCategory/:category/:searchtype', component: OutputBookComponent},
-  
-  {path:'libraryhome/:userName', component: LibraryHomeComponent},
-  {path:'libraryhome', component: LibraryHomeComponent},
-  {path:'userRegistration', component: UserRegistrationComponent},
-  {path:'userLogin', component: UserLoginComponent},
-  {path:'userLogin/:confirm/:name', component: UserLoginComponent}
+  { path: '', pathMatch: 'full', redirectTo: 'userLogin' },
+
+  { path: 'bookByName/:bookname/:searchtype', component: OutputBookComponent },
+  { path: 'bookByAuthor/:author/:searchtype', component: OutputBookComponent },
+  {
+    path: 'bookByCategory/:category/:searchtype',
+    component: OutputBookComponent,
+  },
+
+  { path: 'libraryhome/:userName', component: LibraryHomeComponent },
+  { path: 'libraryhome', component: LibraryHomeComponent },
+  { path: 'userRegistration', component: UserRegistrationComponent },
+  { path: 'userLogin', component: UserLoginComponent },
+  { path: 'userLogin/:confirm/:name/:status', component: UserLoginComponent },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

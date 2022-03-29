@@ -25,8 +25,9 @@ public class UserService {
 	/*
 	 * This method insert user details to the database
 	 */
-	public void insertUser(User user) {
-		userRepositoryImpl.saveUser(user);
+	public String insertUser(User user) {
+	
+		return userRepositoryImpl.saveUser(user);
 	}
 
 	/*

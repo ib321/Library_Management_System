@@ -9,13 +9,15 @@ import { BookService } from './service/book.service';
 import { UserLoginComponent } from './user-login/user-login.component';
 import { LibraryHomeComponent } from './library-home/library-home.component';
 import { UserRegistrationComponent } from './user-registration/user-registration.component';
+import { AddBookComponent } from './add-book/add-book.component';
 @NgModule({
   declarations: [
     AppComponent,
     OutputBookComponent,
     UserLoginComponent,
     LibraryHomeComponent,
-    UserRegistrationComponent
+    UserRegistrationComponent,
+    AddBookComponent
   ],
   imports: [
     BrowserModule,

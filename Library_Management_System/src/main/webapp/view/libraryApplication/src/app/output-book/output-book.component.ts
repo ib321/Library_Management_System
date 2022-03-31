@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Book } from '../model/Book';
 import { BookService } from '../service/book.service';
 
@@ -11,7 +11,8 @@ import { BookService } from '../service/book.service';
 export class OutputBookComponent implements OnInit {
   constructor(
     private bookService: BookService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
   ) {}
   Books: Book[] = [];
   length: number = 0;
@@ -67,4 +68,10 @@ export class OutputBookComponent implements OnInit {
   );
   randomNum = Math.floor(Math.random() * this.myPix.length);
   src = this.myPix[this.randomNum];
+
+  editBook(book: Book) {
+    console.log(book);
+    let action: String = 'edit';
+    this.router.navigate([`editBook/${JSON.stringify(book)}/${action}`]);
+  }
 }

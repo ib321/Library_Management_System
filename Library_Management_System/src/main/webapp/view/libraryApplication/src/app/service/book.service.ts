@@ -14,15 +14,16 @@ export class BookService {
   private registerUserUrl: string;
   private AllBooksUrl: string;
   private validateUserUrl: string;
-
+  private addBookUrl: string;
+  editBookUrl: string;
   constructor(private http: HttpClient) {
     this.AllUserList = 'http://localhost:8098/allUserList';
     this.registerUserUrl = 'http://localhost:8098/registerUser';
-
+    this.addBookUrl = 'http://localhost:8098/addBook';
+    this.editBookUrl = 'http://localhost:8098/editBook';
     this.BookByNameUrl = 'http://localhost:8098/name/';
     this.BookByAuthorUrl = 'http://localhost:8098/author/';
     this.BookByCategUrl = 'http://localhost:8098/category/';
-
     this.AllBooksUrl = 'http://localhost:8098/list';
     this.validateUserUrl = 'http://localhost:8098/validateUser/';
   }
@@ -48,7 +49,16 @@ export class BookService {
   public findByCategory(category: string): Observable<Book[]> {
     return this.http.get<Book[]>(this.BookByCategUrl + category);
   }
-  // public findAllBook(): Observable<Book[]>{
-  //   return this.http.get<Book[]>(this.AllBooksUrl);
-  // }
+  public findAllBook(): Observable<Book[]> {
+    return this.http.get<Book[]>(this.AllBooksUrl);
+  }
+  public addBook(book: Book): Observable<string> {
+    console.log(book);
+    return this.http.post<string>(this.addBookUrl, book);
+  }
+
+  public editBook(book: Book): Observable<string> {
+    console.log(book);
+    return this.http.post<string>(this.editBookUrl, book);
+  }
 }

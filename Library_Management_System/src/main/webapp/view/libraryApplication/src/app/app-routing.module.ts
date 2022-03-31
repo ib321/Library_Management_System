@@ -5,6 +5,7 @@ import { OutputBookComponent } from './output-book/output-book.component';
 import { LibraryHomeComponent } from './library-home/library-home.component';
 import { UserRegistrationComponent } from './user-registration/user-registration.component';
 import { UserLoginComponent } from './user-login/user-login.component';
+import { AddBookComponent } from './add-book/add-book.component';
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'userLogin' },
 
@@ -20,6 +21,8 @@ const routes: Routes = [
   { path: 'userRegistration', component: UserRegistrationComponent },
   { path: 'userLogin', component: UserLoginComponent },
   { path: 'userLogin/:confirm/:name/:status', component: UserLoginComponent },
+  { path: 'editBook/:book/:action', component: AddBookComponent },
+  { path: 'addBook', component: AddBookComponent },
 ];
 
 @NgModule({

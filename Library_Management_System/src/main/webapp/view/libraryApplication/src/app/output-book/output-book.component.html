@@ -14,7 +14,9 @@
           <th>BookName</th>
           <th>Author</th>
           <th>Category</th>
+          <th>Return Date</th>
           <th>Available</th>
+          <th>Edit Book</th>
         </tr>
       </thead>
 
@@ -24,7 +26,9 @@
           <td>{{ book.name }}</td>
           <td>{{ book.author }}</td>
           <td>{{ book.category }}</td>
+          <td>{{ book.returnDate }}</td>
           <td>{{ this.checkAvailability(book.returnDate) }}</td>
+          <td><a routerLink="/editBook" (click)="editBook(book)">Edit</a></td>
         </tr>
       </tbody>
     </table>

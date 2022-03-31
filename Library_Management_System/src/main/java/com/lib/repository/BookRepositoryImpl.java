@@ -1,10 +1,12 @@
 package com.lib.repository;
 
 import java.util.ArrayList;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.lib.model.Book;
+import com.lib.model.User;
 
 /*
  * Implementing the BookRepository Class to do All the Database operation
@@ -13,7 +15,33 @@ public class BookRepositoryImpl {
 
 	@Autowired
 	private BookRepository bookRepository;
-
+	
+	
+	public String saveBook(Book book) {
+		Optional<Book> inserbook = bookRepository.findById(book.getId());
+		if (inserbook.isPresent()) {
+			return "false";
+		} else {
+			bookRepository.save(book);
+			return "true";
+		}
+	}
+	
+	public String editBook(Book book) {
+		Optional<Book> inserbook = bookRepository.findById(book.getId());
+		if (inserbook.isPresent()) {
+			bookRepository.save(book);
+			return "true";
+		} else {
+			
+			return "false";
+		}
+	}
+	
+	public String editBooks(Book book) {
+		bookRepository.save(book);
+		return "true";
+	}
 	/*
 	 * Get all the books from database and Returns List of all book
 	 */

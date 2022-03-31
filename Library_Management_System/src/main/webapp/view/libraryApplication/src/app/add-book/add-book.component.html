@@ -1,0 +1,110 @@
+<div class="html">
+  <h4 align="justify" style="color: white">
+    <br />
+
+    <input
+      class="button5"
+      type="button"
+      value="Back"
+      onCLick="history.back()"
+    />
+  </h4>
+  <div align="center">
+    <h1>Add Book</h1>
+    <div class="container">
+      <form (ngSubmit)="onSubmit(book)" #Add Book="ngForm">
+        <div class="form-group" *ngIf="showstatus">
+          <label><b>Book ID: </b></label>
+          <input
+            type="text"
+            [(ngModel)]="book.id"
+            class="form-control"
+            required
+            minlength="4"
+            id="bookid"
+            name="bookid"
+            placeholder="book ID"
+            required
+            #userid="ngModel"
+          />
+        </div>
+        <div class="form-group">
+          <label><b>Book NAME: </b></label>
+          <input
+            type="text"
+            [(ngModel)]="book.name"
+            class="form-control"
+            required
+            minlength="4"
+            id="bookname"
+            name="bookname"
+            placeholder="book NAME"
+            required
+            #userid="ngModel"
+          />
+        </div>
+        <div class="form-group">
+          <label><b>Author Name: </b></label>
+          <input
+            type="text"
+            [(ngModel)]="book.author"
+            class="form-control"
+            required
+            minlength="4"
+            id="author"
+            name="author"
+            placeholder="Author Name"
+            required
+            #userid="ngModel"
+          />
+        </div>
+        <div class="form-group">
+          <label><b>Category: </b></label>
+          <input
+            type="text"
+            [(ngModel)]="book.category"
+            class="form-control"
+            required
+            minlength="4"
+            id="category"
+            name="category"
+            placeholder="Category"
+            required
+            #userid="ngModel"
+          />
+        </div>
+        <div class="form-group">
+          <label for="return date"><b> Return Date: </b></label>
+          <input
+            type="date"
+            [(ngModel)]="book.returnDate"
+            class="form-control"
+            required
+            id="returnDate"
+            name="returnDate"
+            placeholder="Phone Number"
+            required
+            #returnDate="ngModel"
+          />
+        </div>
+        <div align="center">
+          <button type="submit" *ngIf="showstatus">
+            <b> Submit</b>
+          </button>
+        </div>
+        <div align="center">
+          <button (click)="onEdit(book)" *ngIf="!showstatus">
+            <b> Edit Book</b>
+          </button>
+        </div>
+      </form>
+      <br /><br />
+      <div *ngIf="errorstatus">
+        Can Not Add Empty Value Please Add all the contraint to proceed
+      </div>
+      <div *ngIf="addstatus">
+        New Book Added With Book Id = {{ book.id }} <br />
+      </div>
+    </div>
+  </div>
+</div>

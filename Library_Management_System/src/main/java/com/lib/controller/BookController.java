@@ -60,6 +60,18 @@ public class BookController {
 		return userService.validateUser(name, password);
 	}
 
+	@PostMapping(path = "/addBook", consumes = "application/json")
+	public String addBook(@RequestBody Book book) {
+		System.out.println(book.getId());
+		return bookService.insertBook(book);
+	}
+
+	@PostMapping(path = "/editBook", consumes = "application/json")
+	public String editBook(@RequestBody Book book) {
+		System.out.println(book.getName());
+		return bookService.editBook(book);
+	}
+
 	/*
 	 * This method gets the all books from database by calling bookService class.
 	 * and using Rest API operation it will return list of all the books

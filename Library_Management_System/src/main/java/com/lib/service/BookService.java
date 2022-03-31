@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.lib.exception.BookNotFoundException;
 import com.lib.model.Book;
+import com.lib.model.User;
 import com.lib.repository.BookRepositoryImpl;
 
 /*1. This  class is used for provide some business functionalities 
@@ -21,6 +22,16 @@ public class BookService {
 	 */
 	@Autowired
 	private BookRepositoryImpl bookRepositoryImpl;
+
+	public String insertBook(Book book) {
+
+		return bookRepositoryImpl.saveBook(book);
+	}
+
+	public String editBook(Book book) {
+
+		return bookRepositoryImpl.editBook(book);
+	}
 
 	/*
 	 * This method get all book from the database then returns the list of book. if

@@ -20,22 +20,28 @@
       </h1>
     </div>
     <br />
-    <br /><br /><br />
+    <br /><br />
+
     <div class="card2">
+      <a routerLink="/userRegistration">
+        <input class="anchor2" type="button" value="Add New User"
+      /></a>
+      <br /><br />
       <input
         class="anchor2"
         type="button"
         value="Add New Book "
         (click)="addNewBook()"
       />
-      <br />
+      <br /><br />
+
       <input
         class="anchor2"
         type="button"
         value="Search Book by Name "
         (click)="booknamestatus()"
       />
-      <br /><br />
+      <br />
 
       <div *ngIf="namestatus" id="bk">
         <form #nameform="ngForm" (ngSubmit)="showBookByName()">
@@ -51,7 +57,6 @@
         </form>
       </div>
       <br />
-      <br />
 
       <input
         class="anchor2"
@@ -59,7 +64,7 @@
         value="Search By Author"
         (click)="bookauthorstatus()"
       />
-      <br />
+
       <br />
       <div *ngIf="authorstatus" id="au">
         <form #form2="ngForm" (ngSubmit)="showBookByAuthor()">
@@ -74,7 +79,7 @@
           <input class="button" type="Submit" value="Search" />
         </form>
       </div>
-      <br />
+
       <br />
       <input
         class="anchor2"
@@ -82,7 +87,7 @@
         value="Search By Category"
         (click)="bookcatstatus()"
       />
-      <br />
+
       <br />
       <div *ngIf="catstatus" id="cat">
         <form #form3="ngForm" (ngSubmit)="showBookByCategory()">
@@ -97,7 +102,7 @@
           <input class="button" type="Submit" value="Search" />
         </form>
       </div>
-      <br />
+
       <br />
     </div>
   </div>

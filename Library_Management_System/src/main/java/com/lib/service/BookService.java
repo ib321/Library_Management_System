@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 
 import com.lib.exception.BookNotFoundException;
 import com.lib.model.Book;
-import com.lib.model.User;
 import com.lib.repository.BookRepositoryImpl;
 
 /*1. This  class is used for provide some business functionalities 

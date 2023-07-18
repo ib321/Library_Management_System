@@ -27,9 +27,8 @@ export class LibraryHomeComponent implements OnInit {
   }
 
   showAllBooks() {
-    let all: string = 'all';
-    this.router.navigate([`allBooks/${all}`]);
-    this.router.navigate(['allBooks']);
+    this.searchtype = 'all';
+    this.router.navigate([`allBooks/${this.searchtype}`]);
   }
   namestatus: boolean = false;
   booknamestatus() {

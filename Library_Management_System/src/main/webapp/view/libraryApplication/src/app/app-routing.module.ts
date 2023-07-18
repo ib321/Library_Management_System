@@ -8,7 +8,7 @@ import { UserLoginComponent } from './user-login/user-login.component';
 import { AddBookComponent } from './add-book/add-book.component';
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'userLogin' },
-
+  { path: 'allBooks/:searchtype', component: OutputBookComponent },
   { path: 'bookByName/:bookname/:searchtype', component: OutputBookComponent },
   { path: 'bookByAuthor/:author/:searchtype', component: OutputBookComponent },
   {

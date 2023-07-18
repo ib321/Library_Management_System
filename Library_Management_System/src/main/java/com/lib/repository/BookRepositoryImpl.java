@@ -2,11 +2,8 @@ package com.lib.repository;
 
 import java.util.ArrayList;
 import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
-
 import com.lib.model.Book;
-import com.lib.model.User;
 
 /*
  * Implementing the BookRepository Class to do All the Database operation
@@ -59,7 +56,7 @@ public class BookRepositoryImpl {
 		ArrayList<Book> ListAll = (ArrayList<Book>) bookRepository.findAll();
 		ArrayList<Book> nameList = new ArrayList<Book>();
 		for (Book book : ListAll) {
-			if (book.getName().equalsIgnoreCase(name))
+			if (book.getName().toLowerCase().contains(name.toLowerCase()))
 				nameList.add(book);
 		}
 		return nameList;
@@ -73,7 +70,7 @@ public class BookRepositoryImpl {
 		ArrayList<Book> ListAll = (ArrayList<Book>) bookRepository.findAll();
 		ArrayList<Book> authList = new ArrayList<Book>();
 		for (Book book : ListAll) {
-			if (book.getAuthor().equalsIgnoreCase(author))
+			if (book.getAuthor().toLowerCase().contains(author.toLowerCase()))
 				authList.add(book);
 		}
 		return authList;
@@ -86,7 +83,7 @@ public class BookRepositoryImpl {
 		ArrayList<Book> ListAll = (ArrayList<Book>) bookRepository.findAll();
 		ArrayList<Book> catList = new ArrayList<Book>();
 		for (Book book : ListAll) {
-			if (book.getCategory().equalsIgnoreCase(category))
+			if (book.getCategory().toLowerCase().contains(category.toLowerCase()))
 				catList.add(book);
 		}
 		return catList;

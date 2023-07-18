@@ -11,7 +11,7 @@ import javax.persistence.Table;
  * using Relational Model
  */
 @Entity
-@Table(name="\"user\"")
+@Table(name="uuser")
 public class User {
 	@Id
 	@Column(name="userid")

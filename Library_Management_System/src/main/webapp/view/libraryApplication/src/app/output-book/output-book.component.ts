@@ -45,6 +45,15 @@ export class OutputBookComponent implements OnInit {
             this.Books = allbook;
             if (allbook.length == 0) this.showResult = false;
           });
+      } else if (
+        String(parameters['searchtype']).localeCompare('all') == 0
+      ) {
+        this.bookService
+          .findAllBook()
+          .subscribe((allbook) => {
+            this.Books = allbook;
+            if (allbook.length == 0) this.showResult = false;
+          });
       }
     });
   }

@@ -24,7 +24,7 @@ export class BookService {
     this.BookByNameUrl = 'http://localhost:8098/name/';
     this.BookByAuthorUrl = 'http://localhost:8098/author/';
     this.BookByCategUrl = 'http://localhost:8098/category/';
-    this.AllBooksUrl = 'http://localhost:8098/list';
+    this.AllBooksUrl = 'http://localhost:8098/booksList';
     this.validateUserUrl = 'http://localhost:8098/validateUser/';
   }
 

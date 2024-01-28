@@ -1,0 +1,57 @@
+<div class="body">
+  <button onCLick="history.back()" class="oldbutton">Home</button>
+
+  <div class="search-container">
+    <form class="sform" (ngSubmit)="onSearchSubmit()" role="search">
+      <div class="dropdown">
+        <select class="dropdown-content" [(ngModel)]="selectedOption" name="selectedOption">
+          <option value="all">All</option>
+          <option value="name">By Name</option>
+          <option value="author">By Author</option>
+          <option value="category">By Category</option>
+        </select>
+      </div>
+      <input class="sinput" id="search" type="search" placeholder="Search..." autofocus required [(ngModel)]="searchInput" name="searchInput" />
+      <button class="ssubmit" type="submit">Search</button>    
+    </form>
+  </div>
+  
+  
+  
+  <div align="center" class="container" *ngIf="showResult; else elseBlock">
+    <h1>Book List</h1>
+    <table border="1">
+      <thead>
+        <tr>
+          <th>BookNo</th>
+          <th>BookName</th>
+          <th>Author</th>
+          <th>Category</th>
+          <th>Return Date</th>
+          <th>Available</th>
+          <th>Edit Book</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let book of Books">
+          <td>{{ book.id }}</td>
+          <td>{{ book.name }}</td>
+          <td>{{ book.author }}</td>
+          <td>{{ book.category }}</td>
+          <td>{{ book.returnDate }}</td>
+          <td>{{ this.checkAvailability(book.returnDate) }}</td>
+          <td><a routerLink="/editBook" (click)="editBook(book)">Edit</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+
+  <ng-template #elseBlock>
+    <div class="notFound">
+      <img class="notFoundImage" [src]="src" alt="notFound" />
+      <h1><b>Book Not Found In Database</b></h1>
+    </div>
+  </ng-template>
+</div>

@@ -1,0 +1,44 @@
+<div class="body">
+  <button onCLick="history.back()">Home</button>
+
+  <a style="color: green" href="/userLogin"
+    ><button style="float: right; background-color: #b4425b">Logout</button>
+  </a>
+
+  <div align="center" class="container" *ngIf="showResult; else elseBlock">
+    <h1>Book List</h1>
+    <table border="1">
+      <thead>
+        <tr>
+          <th>BookNo</th>
+          <th>BookName</th>
+          <th>Author</th>
+          <th>Category</th>
+          <th>Return Date</th>
+          <th>Available</th>
+          <th>Edit Book</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let book of Books">
+          <td>{{ book.id }}</td>
+          <td>{{ book.name }}</td>
+          <td>{{ book.author }}</td>
+          <td>{{ book.category }}</td>
+          <td>{{ book.returnDate }}</td>
+          <td>{{ this.checkAvailability(book.returnDate) }}</td>
+          <td><a routerLink="/editBook" (click)="editBook(book)">Edit</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+
+  <ng-template #elseBlock>
+    <div class="notFound">
+      <img class="notFoundImage" [src]="src" alt="notFound" />
+      <h1><b>Book Not Found In Database</b></h1>
+    </div>
+  </ng-template>
+</div>

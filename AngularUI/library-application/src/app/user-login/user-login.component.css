@@ -1,0 +1,126 @@
+.body,
+.hero-image {
+  background-color: grey;
+  background-image: url("../../assets/images/login.jpg");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Montserrat", sans-serif;
+  height: 100vh;
+}
+h2 {
+  text-align: center;
+  text-transform: uppercase;
+  text-shadow: 2px 2px 5px rgb(64, 165, 233);
+  color: rgb(34, 46, 209);
+  padding: 12px 12px;
+  font-weight: initial;
+  margin: 0;
+}
+form {
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 20px 25px;
+  height: 50%;
+  text-align: center;
+}
+
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+.button {
+  display: inline-block;
+  border-radius: 4px;
+  background-color: #f4511e;
+  border: none;
+  color: #ffffff;
+  text-align: center;
+  font-size: 28px;
+  padding: 20px;
+  width: 200px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.button span:after {
+  content: "\00bb";
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button:hover span {
+  padding-right: 25px;
+}
+
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+.button {
+  border-radius: 30px;
+  border: 1px solid #ff4b2b;
+  background-color: #ff4b2b;
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: bold;
+  padding: 12px 12px;
+  letter-spacing: 1px;
+  transition: transform 80ms ease-in;
+}
+
+.container {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 10px 20px 40px rgba(36, 193, 221, 0.25),
+    0 10px 10px rgba(0, 0, 0, 0.22);
+  position: relative;
+  overflow: hidden;
+  width: 360px;
+  max-width: 100%;
+  min-height: 60%;
+}
+.form-container {
+  position: inherit;
+  height: 80%;
+}
+.log-in-container {
+  left: 10px;
+  width: 50%;
+  z-index: 1;
+}
+input {
+  background-color: #eee;
+  border: none;
+  padding: 12px 12px;
+  width: 100%;
+}
+.anchor1 {
+  border-radius: 20px;
+  border: 1px solid #ff4b2b;
+  background-color: #ff4b2b;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: bold;
+  font-family: cursive;
+  padding: 12px 12px;
+  letter-spacing: 1px;
+  transition: transform 80ms ease-in;
+}
+.anchor1::after {
+  background-color: aquamarine;
+}
+.anchor1:hover {
+  background-color: aquamarine;
+}

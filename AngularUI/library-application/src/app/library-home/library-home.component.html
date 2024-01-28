@@ -1,0 +1,116 @@
+<div class="body">
+  <div class="name">
+    <h3>Hello! {{ username | titlecase }}.</h3>
+  </div>
+  <div>
+    <a href="/userLogin"
+      ><button
+        style="float: right; padding: 7px 16px; font-size: medium"
+        class="button"
+      >
+        Log out
+      </button>
+    </a>
+  </div>
+  <br /><br />
+  <div align="center">
+    <div class="card1">
+      <h1 style="color: rgb(211, 0, 0); font-family: cursive">
+        LIBRARY MANAGEMENT SYSTEM
+      </h1>
+    </div>
+    <br />
+    <br /><br />
+
+    <div class="card2">
+      <a routerLink="/userRegistration">
+        <input class="anchor2" type="button" value="Add New User"
+      /></a>
+      <br /><br />
+      <input
+        class="anchor2"
+        type="button"
+        value="Show All Books"
+        (click)="showAllBooks()"
+      />
+      <br /><br />
+      <input
+        class="anchor2"
+        type="button"
+        value="Add New Book "
+        (click)="addNewBook()"
+      />
+      <br /><br />
+
+      <input
+        class="anchor2"
+        type="button"
+        value="Search Book by Name "
+        (click)="booknamestatus()"
+      />
+      <br />
+
+      <div *ngIf="namestatus" id="bk">
+        <form #nameform="ngForm" (ngSubmit)="showBookByName()">
+          <label for="name"></label>
+          <input
+            name="name"
+            required
+            [(ngModel)]="book.name"
+            type="text"
+            id="name "
+          />
+          <input class="button" type="Submit" value="Search" />
+        </form>
+      </div>
+      <br />
+
+      <input
+        class="anchor2"
+        type="button"
+        value="Search By Author"
+        (click)="bookauthorstatus()"
+      />
+
+      <br />
+      <div *ngIf="authorstatus" id="au">
+        <form #form2="ngForm" (ngSubmit)="showBookByAuthor()">
+          <label for="author"></label>
+          <input
+            name="author"
+            required
+            [(ngModel)]="book.author"
+            type="text"
+            id="author "
+          />
+          <input class="button" type="Submit" value="Search" />
+        </form>
+      </div>
+
+      <br />
+      <input
+        class="anchor2"
+        type="button"
+        value="Search By Category"
+        (click)="bookcatstatus()"
+      />
+
+      <br />
+      <div *ngIf="catstatus" id="cat">
+        <form #form3="ngForm" (ngSubmit)="showBookByCategory()">
+          <label for="category"></label>
+          <input
+            name="category"
+            required
+            [(ngModel)]="book.category"
+            type="text"
+            id="category"
+          />
+          <input class="button" type="Submit" value="Search" />
+        </form>
+      </div>
+
+      <br />
+    </div>
+  </div>
+</div>

@@ -1,0 +1,64 @@
+
+.name {
+  text-align: right;
+  color: #ecf5f8;
+}
+
+.card1 {
+  height: 100px;
+  width: 600px !important;
+  display: inline-block;
+}
+.card2 {
+  width: 300px !important;
+  display: inline-block;
+}
+.card1,
+.card2 {
+  margin-right: auto;
+  margin-left: auto;
+  box-shadow: 0 15px 25px rgba(129, 124, 124, 0.2);
+  border-radius: 5px;
+  backdrop-filter: blur(14px);
+  background-color: rgba(255, 255, 255, 0.2);
+  padding: 10px;
+  text-align: center;
+}
+
+.anchor2 {
+  background-color: rgb(6, 10, 255);
+  border: 2px solid #3d1e00;
+  border-radius: 10px;
+  color: rgb(255, 255, 255);
+  padding: 10px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  text-decoration: none;
+}
+
+.anchor2:hover {
+  box-shadow: 0 12px 16px 0 rgba(8, 35, 153, 0.753),
+    0 17px 50px 0 rgba(235, 8, 148, 0.986);
+}
+
+.button {
+  display: inline-block;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color: #4caf50;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 6px rgb(99, 96, 96);
+}
+
+.button:hover {
+  background-color: #3e8e41;
+}
+
+.button:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px rgb(59, 59, 59);
+  transform: translateY(6px);
+}

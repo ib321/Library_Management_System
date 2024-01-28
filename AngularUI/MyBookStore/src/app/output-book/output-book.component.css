@@ -1,0 +1,136 @@
+.body {
+  background: linear-gradient(45deg, #49a09d, #5f2c82);
+  font-family: sans-serif;
+  font-weight: 100;
+}
+
+h1 {
+  font-size: 32px;
+  font-family: cursive;
+  color: lavender;
+}
+
+table {
+  width: 800px;
+  border-collapse: collapse;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+th,
+td {
+  padding: 15px;
+  background-color: rgba(255, 255, 255, 0.2);
+  color: #fff;
+}
+
+th {
+  text-align: left;
+}
+
+thead th {
+  background-color: #55608f;
+}
+
+tbody tr:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+tbody td {
+  position: relative;
+}
+tbody td:hover:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -9999px;
+  bottom: -9999px;
+  background-color: rgba(255, 255, 255, 0.2);
+  z-index: -1;
+}
+.oldbutton {
+  display: inline-block;
+  cursor: pointer;
+  font-size: 18px;
+  font-family: cursive;
+  padding: 8px 20px;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color: #4caf50;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 6px rgb(61, 75, 62);
+}
+
+.oldbutton:hover {
+  background-color: #005803;
+}
+
+.oldbutton:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px rgb(59, 59, 59);
+  transform: translateY(6px);
+}
+.notFound {
+  text-align: center;
+  font-family: sans-serif;
+}
+
+.notFoundImage {
+  height: 450px;
+  width: 600px;
+}
+
+
+/* -------------*/
+
+.search-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.sform {
+  position: relative;
+  width: 40rem;
+  display: flex;
+  align-items: center;
+}
+
+.sinput, .ssubmit{
+  height: 3rem;
+  font-family: 'Lato', sans-serif;
+  border: .7rem;
+  color: #2f2f2f;
+  font-size: 1.2rem;
+}
+.sinput[type="search"] {
+  outline: none; 
+  width: 100%;
+  background: #fff;
+  padding: 0 1.6rem;
+  border-radius: .7rem;
+}
+
+.sinput:not(:placeholder-shown) {
+  border-radius: .7rem 0 0 .7rem;
+  /*width: calc(100% - var(--btn-width));*/
+}
+.dropdown {
+  position: relative;
+}
+
+select, button {
+  height: 3rem;
+  font-family: 'Lato', sans-serif;
+  border: none;
+  color: #2f2f2f;
+  font-size: 1.2rem;
+  border-radius: .7rem;
+}
+
+

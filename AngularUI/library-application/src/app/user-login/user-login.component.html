@@ -1,0 +1,64 @@
+<!-- h2>Did you just pressed Log In :-)</h2 -->
+<div class="body">
+  <div align="center">
+    <h1 style="color: white">LIBRARY MANAGEMENT SYSTEM</h1>
+    <br />
+    <br />
+    <div class="container">
+      <div class="form-container">
+        <h2 style="font-size: 50px">LOGIN</h2>
+        <br />
+        <br />
+
+        <form
+          ngNativeValidate
+          #signupForm="ngForm"
+          (ngSubmit)="userLogin(signupForm)"
+        >
+          <label style="font-size: 20px" for="username">User Name: </label>
+          <input
+            class="anchor1"
+            type="text"
+            placeholder="User id"
+            name="username"
+            id="username"
+            ngModel
+            required
+          />
+
+          <br />
+          <label style="font-size: 20px" for="password">Password: </label>
+          <input
+            class="anchor1"
+            placeholder="Password"
+            type="password"
+            name="password"
+            id="password"
+            ngModel
+            required
+          />
+          <br />
+          <button class="button" type="Submit" style="vertical-align: middle">
+            <span>Login</span>
+          </button>
+          <br />
+          <a routerLink="/userRegistration">
+            <input class="button" type="button" value="Add New User"
+          /></a>
+        </form>
+
+        <div *ngIf="status" style="color: rgb(196, 243, 26)">
+          <h3>Welcome!! {{ name }} You Are Successfully Logged In</h3>
+        </div>
+        <br /><br /><br />
+        <div *ngIf="error" style="color: rgb(177, 1, 1)">
+          <b> Ohh! Dear!<br />Your User Id Or Password Seems Incorrect !</b>
+        </div>
+        <br />
+        <div *ngIf="registrationStatus" style="color: rgb(32, 233, 5)">
+          <b>{{ msg }}</b>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

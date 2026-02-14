@@ -1,4 +1,4 @@
-package com.lib.exception;
+package com.ib.lms.exception;
 
 /*
  *BookNotFoundException Exception Class Will be Thrown when book is not found in database

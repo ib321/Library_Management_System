@@ -1,4 +1,4 @@
-package com.lib.controller;
+package com.ib.lms.controller;
 
 import java.util.ArrayList;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,11 +9,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.lib.model.Book;
-import com.lib.model.User;
+import com.ib.lms.model.Book;
+import com.ib.lms.model.User;
 
-import com.lib.service.BookService;
-import com.lib.service.UserService;
+import com.ib.lms.service.BookService;
+import com.ib.lms.service.UserService;
 
 /*
  * Rest Controller Class For All the Rest API operation

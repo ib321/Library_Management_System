@@ -1,6 +1,6 @@
-package com.lib.repository;
+package com.ib.lms.repository;
 
-import com.lib.model.Book;
+import com.ib.lms.model.Book;
 
 
 import org.springframework.data.repository.CrudRepository;

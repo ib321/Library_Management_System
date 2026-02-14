@@ -1,9 +1,9 @@
-package com.lib.repository;
+package com.ib.lms.repository;
 
 import org.springframework.data.repository.CrudRepository;
 
 
-import com.lib.model.User;
+import com.ib.lms.model.User;
 
 
 /*

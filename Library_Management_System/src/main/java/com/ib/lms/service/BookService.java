@@ -1,4 +1,4 @@
-package com.lib.service;
+package com.ib.lms.service;
 
 import java.util.ArrayList;
 
@@ -7,9 +7,9 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.lib.exception.BookNotFoundException;
-import com.lib.model.Book;
-import com.lib.repository.BookRepositoryImpl;
+import com.ib.lms.exception.BookNotFoundException;
+import com.ib.lms.model.Book;
+import com.ib.lms.repository.BookRepositoryService;
 
 /*1. This  class is used for provide some business functionalities 
  * 2.@Service annotates classes at the service layer.
@@ -23,16 +23,16 @@ public class BookService {
 	 * annotation.
 	 */
 	@Autowired
-	private BookRepositoryImpl bookRepositoryImpl;
+	private BookRepositoryService bookRepositoryService;
 
 	public String insertBook(Book book) {
 
-		return bookRepositoryImpl.saveBook(book);
+		return bookRepositoryService.saveBook(book);
 	}
 
 	public String editBook(Book book) {
 
-		return bookRepositoryImpl.editBook(book);
+		return bookRepositoryService.editBook(book);
 	}
 
 	/*
@@ -44,7 +44,7 @@ public class BookService {
 		ArrayList<Book> ListAll = new ArrayList<Book>();
 		try {
 
-			ListAll = bookRepositoryImpl.allBook();
+			ListAll = bookRepositoryService.allBook();
 			if (ListAll.isEmpty()) {
 				throw new BookNotFoundException("Book Not Found In Database");
 			}
@@ -64,7 +64,7 @@ public class BookService {
 	public ArrayList<Book> getBookByName(String name) {
 		ArrayList<Book> nameList = new ArrayList<Book>();
 		try {
-			nameList = bookRepositoryImpl.findByName(name);
+			nameList = bookRepositoryService.findByName(name);
 			if (nameList.isEmpty()) {
 				throw new BookNotFoundException("Book Not Found In Database");
 			}
@@ -83,7 +83,7 @@ public class BookService {
 	public ArrayList<Book> getBookByAuthor(String author) {
 		ArrayList<Book> authList = new ArrayList<Book>();
 		try {
-			authList = bookRepositoryImpl.findByAuthor(author);
+			authList = bookRepositoryService.findByAuthor(author);
 			if (authList.isEmpty()) {
 				throw new BookNotFoundException("Book Not Found In Database");
 			}
@@ -102,7 +102,7 @@ public class BookService {
 	public ArrayList<Book> getBookByCategory(String category) {
 		ArrayList<Book> catList = new ArrayList<Book>();
 		try {
-			catList = bookRepositoryImpl.findByCategory(category);
+			catList = bookRepositoryService.findByCategory(category);
 			if (catList.isEmpty()) {
 				throw new BookNotFoundException("Book Not Found In Database");
 			}

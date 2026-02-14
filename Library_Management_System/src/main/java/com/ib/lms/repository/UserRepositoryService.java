@@ -1,16 +1,19 @@
-package com.lib.repository;
+package com.ib.lms.repository;
 
 import java.util.ArrayList;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.lib.model.User;
+import com.ib.lms.model.User;
+import org.springframework.stereotype.Component;
 
 /*
  * Implementing the UserRepository Class to do  Database operation
  */
-public class UserRepositoryImpl {
+
+@Component
+public class UserRepositoryService {
 
 	@Autowired
 	UserRepository userRepository;

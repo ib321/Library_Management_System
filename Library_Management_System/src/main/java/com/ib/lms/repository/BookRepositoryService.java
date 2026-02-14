@@ -1,14 +1,17 @@
-package com.lib.repository;
+package com.ib.lms.repository;
 
 import java.util.ArrayList;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
-import com.lib.model.Book;
+import com.ib.lms.model.Book;
+import org.springframework.stereotype.Component;
 
 /*
  * Implementing the BookRepository Class to do All the Database operation
  */
-public class BookRepositoryImpl {
+
+@Component
+public class BookRepositoryService {
 
 	@Autowired
 	private BookRepository bookRepository;

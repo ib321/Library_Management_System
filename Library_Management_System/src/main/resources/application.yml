@@ -1,8 +1,17 @@
 spring:
-  profiles:
-    active: local
   application:
     name: LibraryApplication
+  main:
+    lazy-initialization: true
+
+server:
+  port: 8098
+
+---
+spring:
+  config:
+    activate:
+      on-profile: default
   datasource:
     url: jdbc:h2:mem:libdb
     username: admin
@@ -13,20 +22,17 @@ spring:
     generate-ddl: true
     hibernate:
       ddl-auto: update
-  main:
-    lazy-initialization: true
   devtools:
     restart:
       enabled: true
     poll-interval: 2000
     quiet-period: 1000
 
-server:
-  port: 8098
-
 ---
 spring:
-  profiles: prod
+  config:
+    activate:
+      on-profile: prod
   datasource:
     url: jdbc:oracle:thin:@localhost:1521:xe
     username: system

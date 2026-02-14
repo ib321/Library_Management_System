@@ -31,6 +31,11 @@ public class BookController {
 	public BookController() {
 	}
 
+    @GetMapping(path = "/", produces = "text/html")
+    public String entryPoint() {
+        return "Welcome to the Library Management System! You Found Us :) Peekaboo!";
+    }
+
 	/*
 	 * Rest API method for User Operation This method insert the details of user in
 	 * database by calling userService class and it is using Rest API operation

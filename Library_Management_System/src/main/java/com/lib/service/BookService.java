@@ -2,6 +2,8 @@ package com.lib.service;
 
 import java.util.ArrayList;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,7 +17,8 @@ import com.lib.repository.BookRepositoryImpl;
  */
 @Service
 public class BookService {
-	/*
+    private static final Logger log = LoggerFactory.getLogger(BookService.class);
+    /*
 	 * @Autowired annotation can be used to Auto wire bean just like @Required
 	 * annotation.
 	 */
@@ -47,7 +50,7 @@ public class BookService {
 			}
 
 		} catch (Exception e) {
-			System.out.println(e.getMessage());
+			log.error("exception occurred in bookservice:", e);
 		}
 		return ListAll;
 	}

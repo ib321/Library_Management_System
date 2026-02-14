@@ -1,0 +1,42 @@
+spring:
+  profiles:
+    active: local
+  application:
+    name: LibraryApplication
+  datasource:
+    url: jdbc:h2:mem:libdb
+    username: admin
+    password: admin
+    driver-class-name: org.h2.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    generate-ddl: true
+    hibernate:
+      ddl-auto: update
+  main:
+    lazy-initialization: true
+  devtools:
+    restart:
+      enabled: true
+    poll-interval: 2000
+    quiet-period: 1000
+
+server:
+  port: 8098
+
+---
+spring:
+  profiles: prod
+  datasource:
+    url: jdbc:oracle:thin:@localhost:1521:xe
+    username: system
+    password: system
+    driver-class-name: oracle.jdbc.driver.OracleDriver
+    hikari:
+      connection-timeout: 60000
+      maximum-pool-size: 5
+  jpa:
+    database-platform: org.hibernate.dialect.Oracle8iDialect
+    generate-ddl: true
+    hibernate:
+      ddl-auto: update

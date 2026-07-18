@@ -23,5 +23,7 @@ VALUES('Admin','Bittu','Indian','bittu@gmail.com',08789560932,'U2FsdGVkX19YMY/oV
 INSERT INTO "user"(userid,first,last,email,phone,password,address)
 VALUES('ib123','bittu','kumar','jackbabu661@gmail.com',08789560932,'U2FsdGVkX1+bwU2hP2fUVdJ2B1rr+hBYkfxfBkQTqxE=','abc');
 
-COMMIT;
+INSERT INTO "user"(userid,first,last,email,phone,password,address)
+VALUES('Admin','bittu','indian','bittu@gmail.com',878956,'Admin','abc');
 
+COMMIT;

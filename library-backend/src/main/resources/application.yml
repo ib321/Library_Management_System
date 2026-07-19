@@ -53,7 +53,7 @@ server:
     context-path: /api
 
 jwt:
-  secret: ${JWT_SECRET:mySecretKey123456789012345678901234567890}
+  secret: GSMwLk5e6LlcpJYHWn01dVho5pojBEPHq4bv+I5lrLZT0Fx65igdImA+w2w8ZiZbLoy4/mJJb3asF+3rrMb2VA==
   expiration: 900000 # 15 minutes
   refresh-expiration: 604800000 # 7 days
 

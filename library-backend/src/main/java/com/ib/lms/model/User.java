@@ -1,79 +1,113 @@
 package com.ib.lms.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+import lombok.*;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
-/*
- * User Entity/Model Class With Annotation 
- * To Define The Table Structure Of Database 
- * using Relational Model
+import java.time.LocalDateTime;
+import java.util.Collection;
+import java.util.List;
+
+/**
+ * User Entity/Model Class With Annotation
+ * Implements UserDetails for Spring Security integration
+ * Uses userid as primary identifier
  */
 @Entity
-@Table(name="uuser")
-public class User {
-	@Id
-	@Column(name="userid")
-	String userid;
-	@Column(name="first")
-	String first;
-	@Column(name="last")
-	String last;
-	@Column(name="email")
-	String email;
-	@Column(name="phone")
-	Long phone;
-	@Column(name="password")
-	String password;
-	@Column(name="address")
-	String address;
-	
-	
+@Table(name = "users")
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+public class User implements UserDetails {
 
-	public String getUserid() {
-		return userid;
-	}
-	public void setUserid(String userid) {
-		this.userid = userid;
-	}
-	public String getFirst() {
-		return first;
-	}
-	public void setFirst(String first) {
-		this.first = first;
-	}
-	public String getLast() {
-		return last;
-	}
-	public void setLast(String last) {
-		this.last = last;
-	}
-	public String getAddress() {
-		return address;
-	}
-	public void setAddress(String address) {
-		this.address = address;
-	}
-	public Long getPhone() {
-		return phone;
-	}
-	public void setPhone(Long phone) {
-		this.phone = phone;
-	}
+    @Id
+    @Column(name = "userid", unique = true, nullable = false)
+    private String userid;
 
-	public String getEmail() {
-		return email;
-	}
-	public void setEmail(String email) {
-		this.email = email;
-	}
+    @Column(name = "first_name", nullable = false)
+    private String firstName;
 
-	public String getPassword() {
-		return password;
-	}
-	public void setPassword(String password) {
-		this.password = password;
-	}
+    @Column(name = "last_name", nullable = false)
+    private String lastName;
 
+    @Column(name = "email")
+    private String email;
+
+    @Column(name = "phone")
+    private String phone;
+
+    @Column(name = "password", nullable = false)
+    private String password;
+
+    @Column(name = "address")
+    private String address;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "role", nullable = false)
+    private Role role;
+
+    @Column(name = "enabled", nullable = false)
+    private boolean enabled;
+
+    @Column(name = "created_at", nullable = false, updatable = false)
+    private LocalDateTime createdAt;
+
+    @Column(name = "updated_at")
+    private LocalDateTime updatedAt;
+
+    @PrePersist
+    protected void onCreate() {
+        this.createdAt = LocalDateTime.now();
+        this.updatedAt = LocalDateTime.now();
+        if (!this.enabled) {
+            this.enabled = true;
+        }
+        if (this.role == null) {
+            this.role = Role.STUDENT;
+        }
+    }
+
+    @PreUpdate
+    protected void onUpdate() {
+        this.updatedAt = LocalDateTime.now();
+    }
+
+    public enum Role {
+        ADMIN, LIBRARIAN, STUDENT
+    }
+
+    // UserDetails implementation - uses userid as username
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return List.of(new SimpleGrantedAuthority("ROLE_" + role.name()));
+    }
+
+    @Override
+    public String getUsername() {
+        return userid; // Use userid as the principal identifier
+    }
+
+    @Override
+    public boolean isAccountNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return true;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return enabled;
+    }
 }

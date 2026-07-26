@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { User } from '../model/User';
 import { BookService } from '../service/book.service';
 import { LocationStrategy } from '@angular/common';
 import * as CryptoJS from 'crypto-js';
+import {User} from "../models/user.model";
 
 @Component({
   selector: 'app-user-login',

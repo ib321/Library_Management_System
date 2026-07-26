@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { User } from '../model/User';
 import { BookService } from '../service/book.service';
 import * as CryptoJS from 'crypto-js';
+import {User} from "../models/user.model";
+
 @Component({
   selector: 'app-user-registration',
   templateUrl: './user-registration.component.html',

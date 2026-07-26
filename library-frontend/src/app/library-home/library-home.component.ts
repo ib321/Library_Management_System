@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Book } from '../model/Book';
+import {Book} from "../models/book.model";
 import { BookService } from '../service/book.service';
+
 @Component({
   selector: 'app-library-home',
   templateUrl: './library-home.component.html',
